@@ -9,29 +9,82 @@ angular.module('hiperionApp')
             $scope.title = section.toUpperCase();
         };
     })
-    .controller('UserCtrl', function ($scope, ngTableParams) {
+    .controller('UserCtrl', function ($scope, $filter, ngTableParams, $sce) {
+        $scope.tableForms = ['None','Default', 'Sort', 'Filter', 'Styling-ExportCsv'];
+        $scope.tableFormSelected = 'None';
         $scope.users = [{ name: 'Mick', country: 'US', age: 26 },
+              { name: 'John', country: 'US', age: 60 },
+              { name: 'Rick', country: 'US', age: 28 },
+              { name: 'Liz', country: 'ENG', age: 26 },
+              { name: 'Mon', country: 'ENG', age: 29 },
+              { name: 'Jessy', country: 'US', age: 30 },
+              { name: 'Charlie', country: 'US', age: 36 },
+              { name: 'Jean', country: 'FR', age: 46 },
+              { name: 'Charlie', country: 'FR', age: 56 },
+              { name: 'Brandon', country: 'US', age: 16 },
+              { name: 'Jim', country: 'US', age: 56 },
               { name: 'John', country: 'US', age: 26 },
-              { name: 'Rick', country: 'US', age: 26 },
-              { name: 'Liz', country: 'US', age: 26 },
-              { name: 'Mon', country: 'US', age: 26 },
-              { name: 'Jessy', country: 'US', age: 26 },
-              { name: 'Charlie', country: 'US', age: 26 },
-              { name: 'Mary', country: 'US', age: 26 },
-              { name: 'Peter', country: 'US', age: 26 },
-              { name: 'Peter2', country: 'US', age: 26 },
-              { name: 'Peter3', country: 'US', age: 26 },
-              { name: 'Peter4', country: 'US', age: 26 },
-              { name: 'Peter5', country: 'US', age: 26 },
-              { name: 'Andre', country: 'US', age: 26 }];
+              { name: 'Peter', country: 'AR', age: 32 },
+              { name: 'Mary', country: 'AR', age: 35 }];
 
-        $scope.tableParams = new ngTableParams({
-            page: 1,            // show first page
-            count: 5           // count per page
+        $scope.tableParams01 = new ngTableParams({
+            page: 1,         
+            count: 5
+            }, {
+            total: $scope.users.length, 
+            getData: function($defer, params) {
+            var orderedData = params.sorting() ?
+                                $filter('orderBy')($scope.users, params.orderBy()) :
+                                $scope.users;
+
+            $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+        }
+        });
+
+        $scope.tableParams02 = new ngTableParams({
+            page: 1,
+            count: 5,
+            sorting: { name: 'asc' }
         }, {
-            total: $scope.users.length, // length of data
+            total: $scope.users.length,
             getData: function ($defer, params) {
-                $defer.resolve($scope.users.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+                var orderedData = params.sorting() ?
+                                    $filter('orderBy')($scope.users, params.orderBy()) :
+                                    $scope.users;
+
+                $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+            }
+        });
+
+        $scope.tableParams03 = new ngTableParams({
+            page: 1,
+            count: 5,
+            filter: { name: '', country:'' }
+        }, {
+            total: $scope.users.length,
+            getData: function ($defer, params) {
+                var orderedData = params.filter() ?
+                   $filter('filter')($scope.users, params.filter()) :
+                    $scope.users;
+
+                $scope.usersFiltered = orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count());
+
+                params.total(orderedData.length); 
+                $defer.resolve($scope.usersFiltered);
+            }
+        });
+
+        $scope.tableParams04 = new ngTableParams({
+            page: 1,
+            count: 5
+        }, {
+            total: $scope.users.length,
+            getData: function ($defer, params) {
+                var orderedData = params.sorting() ?
+                            $filter('orderBy')($scope.users, params.orderBy()) :
+                            $scope.users;
+
+                $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
             }
         });
     })
