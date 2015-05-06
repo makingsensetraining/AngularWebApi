@@ -5,6 +5,17 @@
 <h2>Index</h2>
 
 <div>
+    <div ng-show="activeSection =='home'">
+        <a class="btn btn-primary" href="" ng-click="showStatistics()">statistics</a>  
+        <script type="text/ng-template" id="stadisticsTemplate">
+            <div class="ngdialog-message">
+                <h3>References</h3>
+                <p>
+                    <img src="/Content/Images/statistics01.jpg" width="420" alt="Statistics" />
+                </p>
+            </div>
+        </script>
+    </div>
     <div ng-controller="UserCtrl" ng-show="activeSection =='users'">
         <div class="table-examples-selection">
             <span>
@@ -116,7 +127,7 @@
             </script>
         </div>
         <!-- /Filter Table-->
-        <!-- Advanced Table-->
+        <!-- Styling Table-->
         <div ng-show="tableFormSelected == 'Styling-ExportCsv'" class="table-example-container">
             <div class="user-table-data">
                 <div>
@@ -154,7 +165,7 @@
                 </ul>
             </script>
         </div>
-        <!-- /Advanced Table-->
+        <!-- /Styling Table-->
     </div>
     <div ng-controller="AboutCtrl" ng-show="activeSection =='about'">
         {{description}}

@@ -1,4 +1,4 @@
 ﻿'use strict';
 
-angular.module('hiperionApp', ['ngTable', 'ngTableExport'])
+angular.module('hiperionApp', ['ngTable', 'ngTableExport','ngDialog'])
 

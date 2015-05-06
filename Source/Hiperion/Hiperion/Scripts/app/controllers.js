@@ -1,16 +1,22 @@
 ﻿'use strict';
 
 angular.module('hiperionApp')
-    .controller('HomeCtrl', function ($scope) {
+    .controller('HomeCtrl', function ($scope, ngDialog) {
         $scope.title = 'HOME';
-        $scope.activeSection = '';
+        $scope.activeSection = 'home';
         $scope.setActiveSection = function (section) {
             $scope.activeSection = section;
             $scope.title = section.toUpperCase();
         };
+        $scope.showStatistics = function () {
+            ngDialog.open({
+                template: 'stadisticsTemplate',
+                className: 'ngdialog-theme-default'
+            });
+        }
     })
     .controller('UserCtrl', function ($scope, $filter, ngTableParams, $sce) {
-        $scope.tableForms = ['None','Default', 'Sort', 'Filter', 'Styling-ExportCsv'];
+        $scope.tableForms = ['None', 'Default', 'Sort', 'Filter', 'Styling-ExportCsv'];
         $scope.tableFormSelected = 'None';
         $scope.users = [{ name: 'Mick', country: 'US', age: 26 },
               { name: 'John', country: 'US', age: 60 },
@@ -28,17 +34,17 @@ angular.module('hiperionApp')
               { name: 'Mary', country: 'AR', age: 35 }];
 
         $scope.tableParams01 = new ngTableParams({
-            page: 1,         
+            page: 1,
             count: 5
-            }, {
-            total: $scope.users.length, 
-            getData: function($defer, params) {
-            var orderedData = params.sorting() ?
-                                $filter('orderBy')($scope.users, params.orderBy()) :
-                                $scope.users;
+        }, {
+            total: $scope.users.length,
+            getData: function ($defer, params) {
+                var orderedData = params.sorting() ?
+                                    $filter('orderBy')($scope.users, params.orderBy()) :
+                                    $scope.users;
 
-            $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
-        }
+                $defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
+            }
         });
 
         $scope.tableParams02 = new ngTableParams({
@@ -59,7 +65,7 @@ angular.module('hiperionApp')
         $scope.tableParams03 = new ngTableParams({
             page: 1,
             count: 5,
-            filter: { name: '', country:'' }
+            filter: { name: '', country: '' }
         }, {
             total: $scope.users.length,
             getData: function ($defer, params) {
@@ -69,7 +75,7 @@ angular.module('hiperionApp')
 
                 $scope.usersFiltered = orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count());
 
-                params.total(orderedData.length); 
+                params.total(orderedData.length);
                 $defer.resolve($scope.usersFiltered);
             }
         });
