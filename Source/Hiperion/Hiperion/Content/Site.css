@@ -1,4 +1,11 @@
 ﻿body {
-    background-color:#F1FFFA;
+    background-color: #F1FFFA;
 }
 
+.comment-new-container{
+    margin:2px;
+}
+
+.comment-new-container label{
+    width:96px;
+}
