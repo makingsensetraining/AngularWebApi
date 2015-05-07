@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Castle.Core.Resource;
 using Castle.Windsor;
+using Castle.Windsor.Configuration.Interpreters;
 using Hiperion.Infrastructure.Ioc;
 
 namespace Hiperion

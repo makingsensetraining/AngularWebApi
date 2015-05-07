@@ -4,11 +4,9 @@ using Hiperion.Infrastructure.EF.Interfaces;
 
 namespace Hiperion.Infrastructure.EF
 {
-    public class UserContext : DbContext, IDbContext
+    public class HiperionDbContext : DbContext, IDbContext
     {
-        public UserContext(){}
-
-        public UserContext(string connstring) : base(connstring) { }
+        public HiperionDbContext(string connectionString) : base(connectionString) { }
 
         public DbSet<User> UserSet { get; set; }
 

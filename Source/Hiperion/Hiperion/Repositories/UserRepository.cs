@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using Hiperion.Domain.Repositories.Interfaces;
+using Hiperion.Domain;
 using Hiperion.Infrastructure.EF.Interfaces;
+using Hiperion.Repositories.Interfaces;
 
-namespace Hiperion.Domain.Repositories
+namespace Hiperion.Repositories
 {
     public class UserRepository : IUserRepository
     {
