@@ -97,6 +97,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\dialog.css" />
     <Content Include="Content\Images\statistics01.jpg" />
     <Content Include="Content\ng-table.css" />
     <Content Include="Content\ng-table.min.css" />
@@ -105,6 +106,7 @@
     <Content Include="Content\ngDialog-theme-plain.min.css" />
     <Content Include="Content\ngDialog.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\table.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Icon.png" />
