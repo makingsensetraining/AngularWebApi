@@ -1,4 +1,7 @@
-﻿namespace Hiperion
+﻿using System.Data.Entity;
+using Hiperion.Infrastructure.EF;
+
+namespace Hiperion
 {
     using System;
     using System.Web;
@@ -20,7 +23,9 @@
             // Code that runs on application startup
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);            
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<HiperionDbContext>());
         }
     }
 }
