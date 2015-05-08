@@ -3,11 +3,6 @@
 angular.module('hiperionApp')
  .controller('HomeCtrl', function ($scope, ngDialog) {
      $scope.title = 'HOME';
-     $scope.activeSection = 'home';
-     $scope.setActiveSection = function (section) {
-         $scope.activeSection = section;
-         $scope.title = section.toUpperCase();
-     };
      $scope.name = "";
      $scope.comment = "";
      $scope.comments = [];
