@@ -1,8 +1,2 @@
 <?xml version="1.0"?>
-<Tests>
-  <Test>
-    <Name>a test passes (Chrome 42.0.2311 (Windows 8.1))</Name>
-    <DisplayName>a test passes (Chrome 42.0.2311 (Windows 8.1))</DisplayName>
-    <Outcome>Passed</Outcome>
-  </Test>
-</Tests>
+<Tests/>

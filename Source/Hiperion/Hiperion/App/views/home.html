@@ -1,0 +1,38 @@
+﻿<div class="main-container">
+    <a class="btn btn-primary" href="" ng-click="showStatistics()">statistics</a>
+    <a class="btn btn-primary" href="" ng-click="showComments()">Comments</a>
+    <div ng-show="isCommentsVisible">
+        <h2>Comments</h2>
+        <div><a class="btn btn-sm btn-success" href="" ng-click="addComment();">Add Comment</a></div>
+        <div class="comments">
+            <div ng-repeat="cm in comments">
+                <span>{{cm.name}}</span>
+                <p>{{cm.comment}}</p>
+            </div>
+        </div>
+    </div>
+    <!-- Statistics-->
+    <script type="text/ng-template" id="stadisticsTemplate">
+        <div class="ngdialog-message">
+            <h3>References</h3>
+            <p>
+                <img src="/Content/Images/statistics01.jpg" width="420" alt="Statistics" />
+            </p>
+        </div>
+    </script>
+    <!-- /Statistics-->
+    <!-- New Comment-->
+    <script type="text/ng-template" id="commentTemplate">
+        <div class="ngdialog-message">
+            <div class="dialog-new-container">
+                <div><label>Name:</label><input type="text" ng-model="name" /></div>
+                <div><label>Comment:</label><textarea ng-model="comment"></textarea></div>
+                <div class="ngdialog-buttons">
+                    <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm({name: name, comment:comment});">Save</button>
+                    <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog('button')">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </script>
+    <!-- /New Comment-->
+</div>

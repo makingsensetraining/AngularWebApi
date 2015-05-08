@@ -1,42 +1,6 @@
 ﻿'use strict';
 
 angular.module('hiperionApp')
-    .controller('HomeCtrl', function ($scope, ngDialog) {
-        $scope.title = 'HOME';
-        $scope.activeSection = 'home';
-        $scope.setActiveSection = function (section) {
-            $scope.activeSection = section;
-            $scope.title = section.toUpperCase();
-        };
-        $scope.name = "";
-        $scope.comment = "";
-        $scope.comments = [];
-        $scope.isCommentsVisible = false;
-        $scope.showStatistics = function () {
-            $scope.isCommentsVisible = false;
-            ngDialog.open({
-                template: 'stadisticsTemplate',
-                className: 'ngdialog-theme-default'
-            });
-        };
-        $scope.showComments = function () {
-            $scope.isCommentsVisible = true;
-        };
-        $scope.preCloseCallbackOnScope = function (value) {
-            return true;
-        };
-        $scope.addComment = function () {
-            ngDialog.openConfirm({
-                template: 'commentTemplate',
-                className: 'ngdialog-theme-default',
-                preCloseCallback: 'preCloseCallbackOnScope',
-                scope: $scope
-            }).then(function (data) {
-                $scope.comments.push(data);
-            }, function (reason) {
-            });
-        };
-    })
     .controller('UserCtrl', function ($scope, $filter, ngTableParams, $sce, ngDialog) {
         // TODO: Replace this with the data from the web Api.
         var data = [{ name: 'Nick', lastName: 'Rimando', age: 26 },
@@ -79,16 +43,14 @@ angular.module('hiperionApp')
 
         $scope.addNewUser = function () {
             ngDialog.openConfirm({
-                template: 'newUserDialogTemplate',
+                template: 'App/views/userDialog.html',
                 className: 'ngdialog-theme-default',
                 preCloseCallback: 'preCloseCallbackOnScope',
                 scope: $scope
-            }).then(function (user) {                
+            }).then(function (user) {
                 data.push(user);
             }, function (reason) {
             });
         };
-    })
-    .controller('AboutCtrl', function ($scope) {
-        $scope.description = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing sof";
     });
+  
