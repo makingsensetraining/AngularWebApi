@@ -169,7 +169,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Infrastructure\Automapper\AutomapperConfiguration.cs" />
     <Compile Include="Infrastructure\Automapper\IObjectMapperConfigurator.cs" />
     <Compile Include="Infrastructure\Ioc\WindsorDependencyResolver.cs" />
