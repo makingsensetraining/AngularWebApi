@@ -6,6 +6,8 @@ namespace Hiperion.Infrastructure.EF
 {
     public class HiperionDbContext : DbContext, IDbContext
     {
+        public HiperionDbContext() { }
+
         public HiperionDbContext(string connectionString) : base(connectionString) { }
 
         public DbSet<User> UserSet { get; set; }
@@ -14,5 +16,7 @@ namespace Hiperion.Infrastructure.EF
         {
             return this.Set<T>();
         }
+
+        
     }
 }

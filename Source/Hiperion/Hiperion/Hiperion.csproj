@@ -163,8 +163,11 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Infrastructure\Automapper\AutomapperConfiguration.cs" />
+    <Compile Include="Infrastructure\Automapper\IObjectMapperConfigurator.cs" />
     <Compile Include="Infrastructure\Ioc\WindsorDependencyResolver.cs" />
     <Compile Include="Infrastructure\Ioc\WindsorDependencyScope.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\UserDto.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Repositories\Interfaces\IUserRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
@@ -196,7 +199,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

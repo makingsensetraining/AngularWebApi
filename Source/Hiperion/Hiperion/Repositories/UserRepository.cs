@@ -28,7 +28,7 @@ namespace Hiperion.Repositories
 
         public void DeleteUser(int id)
         {
-            var user = this._context.Entity<User>().Single(i => i.Id == id);
+            var user = _context.Entity<User>().Single(i => i.Id == id);
             _context.Entity<User>().Remove(user);
         }
     }
