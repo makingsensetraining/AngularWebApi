@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
-using Hiperion.Domain;
-
-namespace Hiperion.Repositories.Interfaces
+﻿namespace Hiperion.Repositories.Interfaces
 {
+    using System.Collections.Generic;
+    using Domain;
+
     public interface IUserRepository
     {
         IList<User> GetAllValues();

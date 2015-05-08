@@ -1,8 +1,8 @@
-﻿using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
-
-namespace Hiperion.Infrastructure.EF.Interfaces
+﻿namespace Hiperion.Infrastructure.EF.Interfaces
 {
+    using System.Data.Entity;
+    using System.Data.Entity.Infrastructure;
+
     public interface IDbContext
     {
         DbSet<TEntity> Entity<TEntity>() where TEntity : class;

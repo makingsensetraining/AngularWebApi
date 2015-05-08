@@ -1,43 +1,26 @@
-﻿
-button.ngdialog-button {
-    border: solid transparent 1px !important;
+﻿button.ngdialog-button { border: solid transparent 1px !important; }
+
+button.ngdialog-button:focus { border: solid black 1px !important; }
+
+.ngdialog h2:focus { outline: none; }
+
+.dialog-new-container { margin: 2px; }
+
+.dialog-new-container label { width: 96px; }
+
+.dialog-new-container input[type="text"] { width: 272px; }
+
+.dialog-new-container textarea {
+    resize: none;
+    width: 272px;
 }
 
-    button.ngdialog-button:focus {
-        border: solid black 1px !important;
-    }
+.dialog-new-container select { margin-left: -4px; }
 
-.ngdialog h2:focus {
-    outline: none;
-}
+.dialog-new-container div:last-child { margin-top: 20px; }
 
-.dialog-new-container{
-    margin:2px;
-}
-
-.dialog-new-container label{
-    width:96px;
-}
-
-.dialog-new-container input[type="text"]{
-    width:272px;
-}
-
-.dialog-new-container textarea{
-    resize:none;
-    width:272px;
-}
-
-    .dialog-new-container select {
-        margin-left:-4px;
-    }
-
-.dialog-new-container div:last-child{
-    margin-top:20px;
-}
-
-.dialogs{
-      border: 1px solid #818181;
+.dialogs {
+    border: 1px solid #818181;
     border-radius: 12px;
     margin: 24px 0;
     padding: 20px;

@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using Hiperion.Domain;
-using Hiperion.Infrastructure.EF.Interfaces;
-using Hiperion.Repositories.Interfaces;
-
-namespace Hiperion.Repositories
+﻿namespace Hiperion.Repositories
 {
+    using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Linq;
+    using Domain;
+    using Infrastructure.EF.Interfaces;
+    using Interfaces;
+
     public class UserRepository : IUserRepository
     {
         private readonly IDbContext _context;
@@ -28,7 +28,7 @@ namespace Hiperion.Repositories
 
         public void DeleteUser(int id)
         {
-            var user = this._context.Entity<User>().Single(i => i.Id == id);
+            User user = _context.Entity<User>().Single(i => i.Id == id);
             _context.Entity<User>().Remove(user);
         }
     }

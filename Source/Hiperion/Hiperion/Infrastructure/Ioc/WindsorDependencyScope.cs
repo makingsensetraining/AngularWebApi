@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http.Dependencies;
-using Castle.MicroKernel.Lifestyle;
-using Castle.Windsor;
-
-namespace Hiperion.Infrastructure.Ioc
+﻿namespace Hiperion.Infrastructure.Ioc
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web.Http.Dependencies;
+    using Castle.MicroKernel.Lifestyle;
+    using Castle.Windsor;
+
     public class WindsorDependencyScope : IDependencyScope
     {
         private readonly IWindsorContainer _container;

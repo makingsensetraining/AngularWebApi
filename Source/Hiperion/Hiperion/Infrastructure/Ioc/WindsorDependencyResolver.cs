@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http.Dependencies;
-using Castle.Windsor;
-
-namespace Hiperion.Infrastructure.Ioc
+﻿namespace Hiperion.Infrastructure.Ioc
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web.Http.Dependencies;
+    using Castle.Windsor;
+
     public class WindsorDependencyResolver : IDependencyResolver
     {
         private readonly IWindsorContainer _container;

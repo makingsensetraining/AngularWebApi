@@ -1,22 +1,24 @@
-﻿using System.Data.Entity;
-using Hiperion.Infrastructure.EF;
-
-namespace Hiperion
+﻿namespace Hiperion
 {
     using System;
+    using System.Data.Entity;
     using System.Web;
+    using System.Web.Http;
     using System.Web.Mvc;
     using System.Web.Routing;
-    using System.Web.Http;
     using Castle.Windsor;
+    using Infrastructure.EF;
 
     public class Global : HttpApplication
     {
         private static IWindsorContainer _container;
 
-        public IWindsorContainer Container { get { return _container; } }
+        public IWindsorContainer Container
+        {
+            get { return _container; }
+        }
 
-        void Application_Start(object sender, EventArgs e)
+        private void Application_Start(object sender, EventArgs e)
         {
             _container = Bootstrapper.InitializeContainer();
 

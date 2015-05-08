@@ -1,4 +1,4 @@
-﻿'use strict';
+'use strict';
 
 angular.module('hiperionApp')
     .controller('UserCtrl', function ($scope, $filter, ngTableParams, $sce, ngDialog) {
@@ -53,4 +53,3 @@ angular.module('hiperionApp')
             });
         };
     });
-  

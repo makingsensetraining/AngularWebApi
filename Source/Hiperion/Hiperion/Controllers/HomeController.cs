@@ -1,7 +1,7 @@
-﻿using System.Web.Mvc;
-
-namespace Hiperion.Controllers
+﻿namespace Hiperion.Controllers
 {
+    using System.Web.Mvc;
+
     public class HomeController : Controller
     {
         // GET: /Home/
@@ -9,5 +9,5 @@ namespace Hiperion.Controllers
         {
             return View();
         }
-	}
+    }
 }
