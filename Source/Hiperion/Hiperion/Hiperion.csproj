@@ -174,6 +174,7 @@
     <Compile Include="Infrastructure\Automapper\IObjectMapperConfigurator.cs" />
     <Compile Include="Infrastructure\Ioc\WindsorDependencyResolver.cs" />
     <Compile Include="Infrastructure\Ioc\WindsorDependencyScope.cs" />
+    <Compile Include="Infrastructure\Mappings\UserMappers.cs" />
     <Compile Include="Migrations\201505081556371_User-20150508-daltamirano.cs" />
     <Compile Include="Migrations\201505081556371_User-20150508-daltamirano.Designer.cs">
       <DependentUpon>201505081556371_User-20150508-daltamirano.cs</DependentUpon>
@@ -191,7 +192,7 @@
     <Compile Include="Infrastructure\EF\HiperionDbContext.cs" />
     <Compile Include="Infrastructure\Ioc\WindsorInstaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Interfaces\IUserServices.cs" />
+    <Compile Include="Services\IUserServices.cs" />
     <Compile Include="Services\UserServices.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -211,6 +212,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Services\Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201505081556371_User-20150508-daltamirano.resx">

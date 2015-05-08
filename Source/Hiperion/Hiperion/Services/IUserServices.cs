@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Hiperion.Services.Interfaces
+﻿namespace Hiperion.Services
 {
+    using System.Collections.Generic;
     using Models;
 
     public interface IUserServices

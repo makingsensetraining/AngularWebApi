@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace Hiperion.Services
+﻿namespace Hiperion.Services
 {
+    using System.Collections.Generic;
     using AutoMapper;
     using Domain;
-    using Interfaces;
     using Models;
     using Repositories.Interfaces;
 
@@ -22,16 +17,16 @@ namespace Hiperion.Services
 
         public IEnumerable<UserDto> GetAllUsers()
         {
-            var users = _repository.GetAllValues();
+            IList<User> users = _repository.GetAllValues();
 
-            var userDtos = Mapper.Map<IList<User>, IList<UserDto>>(users);
+            IList<UserDto> userDtos = Mapper.Map<IList<User>, IList<UserDto>>(users);
 
             return userDtos;
         }
 
         public bool SaveOrUpdateUser(UserDto userDto)
         {
-            var user = Mapper.Map<UserDto, User>(userDto);
+            User user = Mapper.Map<UserDto, User>(userDto);
 
             //add some bussines logic before update DB
 

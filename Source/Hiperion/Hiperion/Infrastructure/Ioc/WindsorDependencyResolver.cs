@@ -6,7 +6,7 @@
     using System.Web.Http.Dependencies;
     using Castle.Windsor;
 
-    public class WindsorDependencyResolver : IDependencyResolver
+    internal sealed class WindsorDependencyResolver : IDependencyResolver
     {
         private readonly IWindsorContainer _container;
 
