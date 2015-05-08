@@ -111,6 +111,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\scripts\app.js" />
+    <Content Include="App\scripts\controllers\about.js" />
+    <Content Include="App\scripts\controllers\home.js" />
+    <Content Include="App\scripts\controllers\user.js" />
+    <Content Include="App\views\about.html" />
+    <Content Include="App\views\home.html" />
+    <Content Include="App\views\users.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -131,8 +138,6 @@
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
-    <Content Include="Scripts\app\app.js" />
-    <Content Include="Scripts\app\controllers.js" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -154,6 +159,9 @@
     <Content Include="Scripts\ng-table.min.js" />
     <Content Include="Scripts\ngDialog.js" />
     <Content Include="Scripts\ngDialog.min.js" />
+    <Content Include="App\views\userDialog.html" />
+    <Content Include="Test\karma.conf.js" />
+    <Content Include="Test\test.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -189,11 +197,9 @@
     <Content Include="packages.config" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Shared\_MinimalLayout.cshtml" />
     <Content Include="Scripts\ng-table.min.js.map" />
+    <Content Include="Test\package.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
