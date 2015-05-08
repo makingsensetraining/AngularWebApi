@@ -148,7 +148,6 @@
     <Content Include="Scripts\ng-table.min.js" />
     <Content Include="Scripts\ngDialog.js" />
     <Content Include="Scripts\ngDialog.min.js" />
-    <Content Include="Scripts\npm.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

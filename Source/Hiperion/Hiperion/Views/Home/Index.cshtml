@@ -8,173 +8,70 @@
 <h2>Index</h2>
 
 <div>
+    <!-- Home-->
     <div ng-show="activeSection =='home'">
-        <a class="btn btn-primary" href="" ng-click="showStatistics()">statistics</a>
-        <a class="btn btn-primary" href="" ng-click="showComments()">Comments</a>
-
-        <div ng-show="isCommentsVisible">
-            <h2>Comments</h2>
-            <div><a class="btn btn-sm btn-success" href="" ng-click="addComment();">Add Comment</a></div>
-            <div>
-                <div ng-repeat="cm in comments">
-                    <span>{{cm.name}}</span>
-                    <p>{{cm.comment}}</p>
+        <div class="main-container">
+            <a class="btn btn-primary" href="" ng-click="showStatistics()">statistics</a>
+            <a class="btn btn-primary" href="" ng-click="showComments()">Comments</a>
+            <div ng-show="isCommentsVisible">
+                <h2>Comments</h2>
+                <div><a class="btn btn-sm btn-success" href="" ng-click="addComment();">Add Comment</a></div>
+                <div class="comments">
+                    <div ng-repeat="cm in comments">
+                        <span>{{cm.name}}</span>
+                        <p>{{cm.comment}}</p>
+                    </div>
                 </div>
             </div>
+            <!-- Statistics-->
+            <script type="text/ng-template" id="stadisticsTemplate">
+                <div class="ngdialog-message">
+                    <h3>References</h3>
+                    <p>
+                        <img src="/Content/Images/statistics01.jpg" width="420" alt="Statistics" />
+                    </p>
+                </div>
+            </script>
+            <!-- /Statistics-->
+            <!-- New Comment-->
+            <script type="text/ng-template" id="commentTemplate">
+                <div class="ngdialog-message">
+                    <div class="dialog-new-container">
+                        <div><label>Name:</label><input type="text" ng-model="name" /></div>
+                        <div><label>Comment:</label><textarea ng-model="comment"></textarea></div>
+                        <div class="ngdialog-buttons">
+                            <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm({name: name, comment:comment});">Save</button>
+                            <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog('button')">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </script>
+            <!-- /New Comment-->
         </div>
-        <!-- Statistics-->
-        <script type="text/ng-template" id="stadisticsTemplate">
-            <div class="ngdialog-message">
-                <h3>References</h3>
-                <p>
-                    <img src="/Content/Images/statistics01.jpg" width="420" alt="Statistics" />
-                </p>
-            </div>
-        </script>
-        <!-- /Statistics-->
-        <!-- New Comment-->
-        <script type="text/ng-template" id="commentTemplate">
-            <div class="ngdialog-message">
-                <h3>Comment</h3>
-                <div class="comment-new-container">
-                    <div><label>Name:</label><input type="text" ng-model="name" /></div>
-                    <div><label>Comment:</label><input type="text" ng-model="comment" /></div>
-                    <div><input type="button" class="btn btn-sm btn-primary" ng-click="confirm({name: name, comment:comment});" value="Save" /></div>
-                </div>
-            </div>
-        </script>
-        <!-- /New Comment-->
     </div>
+    <!-- /Home-->
+    <!-- Users-->
     <div ng-controller="UserCtrl" ng-show="activeSection =='users'">
-        <div class="table-examples-selection">
-            <span>
-                Select the table's form will be shown:
-            </span>
-            <select ng-model="tableFormSelected">
-                <option ng-repeat="tableForm in tableForms" value="{{tableForm}}">{{tableForm}}</option>
-            </select>
-        </div>
-        <!-- Default Table-->
-        <div ng-show="tableFormSelected == 'Default'" class="table-example-container">
+        <div class="main-container">
             <div class="user-table-data">
                 <div>
-                    <span>Page:</span> {{tableParams01.page()}} / <span>Count per page:</span> {{tableParams01.count()}}
-                </div>
-            </div>
-            <table ng-table="tableParams01" class="table" template-pagination="customPager">
-                <tr ng-repeat="user in $data">
-                    <td data-title="'Name'">{{user.name}}</td>
-                    <td data-title="'Country'">{{user.country}}</td>
-                    <td data-title="'Age'">{{user.age}}</td>
-                </tr>
-            </table>
-            <script type="text/ng-template" id="customPager">
-                <ul class="pager ng-cloak">
-                    <li ng-repeat="page in pages"
-                        ng-class="{'disabled': !page.active, 'previous': page.type == 'prev', 'next': page.type == 'next'}"
-                        ng-show="page.type == 'prev' || page.type == 'next'" ng-switch="page.type">
-                        <a ng-switch-when="prev" ng-click="params.page(page.number)" href="">&laquo; Previous</a>
-                        <a ng-switch-when="next" ng-click="params.page(page.number)" href="">Next &raquo;</a>
-                    </li>
-                    <li>
-                        <div class="btn-group">
-                            <button type="button" ng-class="{'active':params.count() == 5}" ng-click="params.count(5)" class="btn btn-default">5</button>
-                            <button type="button" ng-class="{'active':params.count() == 10}" ng-click="params.count(10)" class="btn btn-default">10</button>
-                            <button type="button" ng-class="{'active':params.count() == 15}" ng-click="params.count(15)" class="btn btn-default">15</button>
-                            <button type="button" ng-class="{'active':params.count() == 100}" ng-click="params.count(100)" class="btn btn-default">100</button>
-                        </div>
-                    </li>
-                </ul>
-            </script>
-        </div>
-        <!-- /Default Table-->
-        <!-- Sort Table-->
-        <div ng-show="tableFormSelected == 'Sort'" class="table-example-container">
-            <div class="user-table-data">
-                <div>
-                    <span>Page:</span> {{tableParams02.page()}} / <span>Count per page:</span> {{tableParams02.count()}}
-                </div>
-            </div>
-            <table ng-table="tableParams02" class="table" template-pagination="customPager">
-                <tr ng-repeat="user in $data">
-                    <td data-title="'Name'" sortable="'name'">{{user.name}}</td>
-                    <td data-title="'Country'" sortable="'country'">{{user.country}}</td>
-                    <td data-title="'Age'" sortable="'age'">{{user.age}}</td>
-                </tr>
-            </table>
-            <script type="text/ng-template" id="customPager">
-                <ul class="pager ng-cloak">
-                    <li ng-repeat="page in pages"
-                        ng-class="{'disabled': !page.active, 'previous': page.type == 'prev', 'next': page.type == 'next'}"
-                        ng-show="page.type == 'prev' || page.type == 'next'" ng-switch="page.type">
-                        <a ng-switch-when="prev" ng-click="params.page(page.number)" href="">&laquo; Previous</a>
-                        <a ng-switch-when="next" ng-click="params.page(page.number)" href="">Next &raquo;</a>
-                    </li>
-                    <li>
-                        <div class="btn-group">
-                            <button type="button" ng-class="{'active':params.count() == 5}" ng-click="params.count(5)" class="btn btn-default">5</button>
-                            <button type="button" ng-class="{'active':params.count() == 10}" ng-click="params.count(10)" class="btn btn-default">10</button>
-                            <button type="button" ng-class="{'active':params.count() == 15}" ng-click="params.count(15)" class="btn btn-default">15</button>
-                            <button type="button" ng-class="{'active':params.count() == 100}" ng-click="params.count(100)" class="btn btn-default">100</button>
-                        </div>
-                    </li>
-                </ul>
-            </script>
-        </div>
-        <!-- /Sort Table-->
-        <!-- Filter Table-->
-        <div ng-show="tableFormSelected == 'Filter'" class="table-example-container">
-            <div class="user-table-data">
-                <div>
-                    <span>Page:</span> {{tableParams03.page()}} / <span>Count per page:</span> {{tableParams03.count()}}
-                </div>
-            </div>
-            <table ng-table="tableParams03" class="table" show-filter="true" template-pagination="customPager">
-                <tr ng-repeat="user in $data">
-                    <td data-title="'Name'" filter="{ 'name': 'text' }">{{user.name}}</td>
-                    <td data-title="'Country'" filter="{country: 'text'}">{{user.country}}</td>
-                    <td data-title="'Age'">{{user.age}}</td>
-                </tr>
-            </table>
-            <script type="text/ng-template" id="customPager">
-                <ul class="pager ng-cloak">
-                    <li ng-repeat="page in pages"
-                        ng-class="{'disabled': !page.active, 'previous': page.type == 'prev', 'next': page.type == 'next'}"
-                        ng-show="page.type == 'prev' || page.type == 'next'" ng-switch="page.type">
-                        <a ng-switch-when="prev" ng-click="params.page(page.number)" href="">&laquo; Previous</a>
-                        <a ng-switch-when="next" ng-click="params.page(page.number)" href="">Next &raquo;</a>
-                    </li>
-                    <li>
-                        <div class="btn-group">
-                            <button type="button" ng-class="{'active':params.count() == 5}" ng-click="params.count(5)" class="btn btn-default">5</button>
-                            <button type="button" ng-class="{'active':params.count() == 10}" ng-click="params.count(10)" class="btn btn-default">10</button>
-                            <button type="button" ng-class="{'active':params.count() == 15}" ng-click="params.count(15)" class="btn btn-default">15</button>
-                            <button type="button" ng-class="{'active':params.count() == 100}" ng-click="params.count(100)" class="btn btn-default">100</button>
-                        </div>
-                    </li>
-                </ul>
-            </script>
-        </div>
-        <!-- /Filter Table-->
-        <!-- Styling Table-->
-        <div ng-show="tableFormSelected == 'Styling-ExportCsv'" class="table-example-container">
-            <div class="user-table-data">
-                <div>
-                    <span>Page:</span> {{tableParams04.page()}} / <span>Count per page:</span> {{tableParams04.count()}}
+                    <span>Page:</span> {{tableParams.page()}} / <span>Count per page:</span> {{tableParams.count()}}
                 </div>
             </div>
             <div>
-                <a class="btn btn-primary" ng-mousedown="csv.generate()" ng-href="{{ csv.link() }}" download="test.csv">Export to CSV</a>
+                <a class="btn btn-sm btn-primary" ng-mousedown="csv.generate()" ng-href="{{ csv.link() }}" download="test.csv">Export to CSV</a>
+                <a class="btn btn-sm btn-success" href="" ng-click="addNewUser();">Add new User</a>
             </div>
-            <table ng-table="tableParams04" class="table" template-pagination="customPager" export-csv="csv">
+            <table ng-table="tableParams" class="table" template-pagination="customPager" show-filter="true" export-csv="csv">
                 <tr ng-repeat="user in $data" ng-class="{ 'emphasis': user.age > 50 }">
-                    <td data-title="'Name'">{{user.name}}</td>
-                    <td data-title="'Country'">{{user.country}}</td>
-                    <td data-title="'Age'">
+                    <td data-title="'First Name'" sortable="'name'" filter="{ 'name': 'text' }">{{user.name}}</td>
+                    <td data-title="'Last Name'" sortable="'lastName'" filter="{ 'lastName': 'text' }">{{user.lastName}}</td>
+                    <td data-title="'Age'" sortable="'age'">
                         <span ng-class="{ 'plus': user.age < 50,'minus': user.age > 50 }">{{user.age}}</span>
                     </td>
                 </tr>
             </table>
+            <!-- Table Temaplate -->
             <script type="text/ng-template" id="customPager">
                 <ul class="pager ng-cloak">
                     <li ng-repeat="page in pages"
@@ -193,10 +90,34 @@
                     </li>
                 </ul>
             </script>
+            <!-- /Table Temaplate -->
+            <!-- Dialog Temaplate -->
+            <script type="text/ng-template" id="newUserDialogTemplate">
+                <div class="ngdialog-message">
+                    <div class="dialog-new-container">
+                        <div><label>First Name:</label><input type="text" ng-model="name" /></div>
+                        <div><label>Last Name:</label><input type="text" ng-model="lastName" /></div>
+                        <div>
+                            <label>Age:</label>@*<input type="text" ng-model="age" />*@
+                            <select ng-model="age" ng-options="n for n in [] | userRange:1:101"></select>
+                        </div>
+                        <div class="ngdialog-buttons">
+                            <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm({name: name, lastName:lastName, age: age});">Save</button>
+                            <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog('button')">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </script>
+            <!-- /Dialog Temaplate -->
+
         </div>
-        <!-- /Styling Table-->
     </div>
+    <!-- /Users-->
+    <!-- About -->
     <div ng-controller="AboutCtrl" ng-show="activeSection =='about'">
-        {{description}}
+        <div class="main-container">
+            {{description}}
+        </div>
     </div>
+    <!-- /About -->
 </div>
