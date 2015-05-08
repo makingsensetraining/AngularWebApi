@@ -191,6 +191,8 @@
     <Compile Include="Infrastructure\EF\HiperionDbContext.cs" />
     <Compile Include="Infrastructure\Ioc\WindsorInstaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Interfaces\IUserServices.cs" />
+    <Compile Include="Services\UserServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
