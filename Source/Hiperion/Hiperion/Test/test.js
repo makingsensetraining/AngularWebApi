@@ -1,8 +1,8 @@
 'use strict';
 
-describe("Test 001", function () { it("OK", function () { expect(true).toBe(true); }); });
+describe("Test 001 - Simple one", function () { it("OK", function () { expect(true).toBe(true); }); });
 
-describe("Test 002", function () { it("Ok", function () { expect(true).toBe(true); }); });
+describe("Test 002 - Simple one", function () { it("Ok", function () { expect(true).toBe(true); }); });
 
 describe("Test 003 - User Controller", function () {
 
