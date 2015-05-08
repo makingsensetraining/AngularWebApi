@@ -1,2 +1,2 @@
-Self training using AngularJs y .Net WebApi. <br/>
+Self training using AngularJs and .Net WebApi. <br/>
 [wiki section](https://github.com/makingsensetraining/angular-webapi/wiki).
