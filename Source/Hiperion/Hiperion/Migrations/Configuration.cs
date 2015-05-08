@@ -1,19 +1,24 @@
 namespace Hiperion.Migrations
 {
-    using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
+    using Domain;
+    using Infrastructure.EF;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Hiperion.Infrastructure.EF.HiperionDbContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<HiperionDbContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Hiperion.Infrastructure.EF.HiperionDbContext context)
+        protected override void Seed(HiperionDbContext context)
         {
+            context.Entity<User>().AddOrUpdate(p => p.Id,
+                new User
+                {
+                    FirstName = "John",
+                    LastName = "Doe"
+                });
             //  This method will be called after migrating to the latest version.
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 

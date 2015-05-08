@@ -1,54 +1,54 @@
 ﻿<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hiperion Application V0.1</title>
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/ng-table.min.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/ngDialog.min.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/ngDialog-theme-default.min.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/ngDialog-theme-plain.min.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/ngDialog-custom-width.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <script src="~/Scripts/modernizr-2.6.2.js"></script>
-</head>
-<body ng-app="hiperionApp" ng-controller="HomeCtrl">
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#/">Hiperion Application v0.1</a>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hiperion Application V0.1</title>
+        <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/ng-table.min.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/ngDialog.min.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/ngDialog-theme-default.min.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/ngDialog-theme-plain.min.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/ngDialog-custom-width.css" rel="stylesheet" type="text/css" />
+        <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+        <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    </head>
+    <body ng-app="hiperionApp" ng-controller="HomeCtrl">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#/">Hiperion Application v0.1</a>
+            </div>
+            <div class="collapse navbar-collapse" id="js-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#/" ng-click="setActiveSection('home');">Home</a></li>
+                    <li><a href="#/" ng-click="setActiveSection('users');">Users</a></li>
+                    <li><a href="#/" ng-click="setActiveSection('about');">About</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="collapse navbar-collapse" id="js-navbar-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#/" ng-click="setActiveSection('home');">Home</a></li>
-                <li><a href="#/" ng-click="setActiveSection('users');">Users</a></li>
-                <li><a href="#/" ng-click="setActiveSection('about');">About</a></li>
-            </ul>
+
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Hiperion Application</p>
+            </footer>
         </div>
-    </div>
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Hiperion Application</p>
-        </footer>
-    </div>
+        <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+        <script src="~/Scripts/bootstrap.min.js"></script>
+        <script src="~/Scripts/angular.js"></script>
+        <script src="~/Scripts/ng-table.js"></script>
+        <script src="http://bazalt-cms.com/assets/ng-table-export/0.1.0/ng-table-export.js"></script>
+        <script src="~/Scripts/ngDialog.js"></script>
+        <script src="~/Scripts/app/app.js"></script>
+        <script src="~/Scripts/app/controllers.js"></script>
 
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/angular.js"></script>
-    <script src="~/Scripts/ng-table.js"></script>
-    <script src="http://bazalt-cms.com/assets/ng-table-export/0.1.0/ng-table-export.js"></script>
-    <script src="~/Scripts/ngDialog.js"></script>
-    <script src="~/Scripts/app/app.js"></script>
-    <script src="~/Scripts/app/controllers.js"></script>
-
-</body>
+    </body>
 </html>

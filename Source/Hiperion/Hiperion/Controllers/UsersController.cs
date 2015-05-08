@@ -1,21 +1,26 @@
-﻿using System.Web.Http;
-using System.Web.Mvc;
-using Hiperion.Infrastructure.EF.Interfaces;
-
-namespace Hiperion.Controllers
+﻿namespace Hiperion.Controllers
 {
+    using System.Web.Http;
+    using Domain;
+    using Infrastructure.EF.Interfaces;
+
     public class UsersController : ApiController
     {
-        private IDbContext _dbContext;
+        private readonly IDbContext _dbContext;
 
         public UsersController(IDbContext dbContext)
         {
             _dbContext = dbContext;
         }
 
-        public ActionResult GetUsers()
+        public IHttpActionResult GetUsers()
         {
-            return null;
+            return Ok(
+                new
+                {
+                    Results = _dbContext.Entity<User>()
+                }
+                );
         }
     }
 }

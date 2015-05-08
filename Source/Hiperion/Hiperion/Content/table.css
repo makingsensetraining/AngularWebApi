@@ -1,26 +1,17 @@
-﻿
-/* Table */
-.table-examples-selection {
-    margin: 28px 4px;
-}
+﻿/* Table */
+.table-examples-selection { margin: 28px 4px; }
 
-    .table-examples-selection span {
-        font-size: 18px;
-        font-weight: bold;
-        color: #818181;
-    }
-
-    .table-examples-selection select {
-        width: 140px;
-    }
-
-.user-table-data {
-    margin: 10px;
-}
-
-.user-container div span {
+.table-examples-selection span {
+    color: #818181;
+    font-size: 18px;
     font-weight: bold;
 }
+
+.table-examples-selection select { width: 140px; }
+
+.user-table-data { margin: 10px; }
+
+.user-container div span { font-weight: bold; }
 
 .ng-table .plus, .ng-table .minus {
     font-weight: bold;
@@ -28,40 +19,35 @@
     position: relative;
 }
 
-    .ng-table .plus:before, .ng-table .minus:before {
-        content: "";
-        border-width: 4px;
-        border-style: solid;
-        left: 8px;
-        top: 50%;
-        position: absolute;
-        margin-top: -2px;
-    }
-
-.ng-table .plus {
-    color: green;
+.ng-table .plus:before, .ng-table .minus:before {
+    border-style: solid;
+    border-width: 4px;
+    content: "";
+    left: 8px;
+    margin-top: -2px;
+    position: absolute;
+    top: 50%;
 }
 
-    .ng-table .plus:before {
-        border-color: green;
-        border-top: none;
-        border-left: 4px solid transparent;
-        border-right: 4px solid transparent;
-    }
+.ng-table .plus { color: green; }
 
-.ng-table .minus {
-    color: red;
+.ng-table .plus:before {
+    border-color: green;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: none;
 }
 
-    .ng-table .minus:before {
-        border-color: red;
-        border-bottom: none;
-        border-left: 4px solid transparent;
-        border-right: 4px solid transparent;
-    }
+.ng-table .minus { color: red; }
+
+.ng-table .minus:before {
+    border-bottom: none;
+    border-color: red;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+}
 
 .ng-table tr.emphasis td {
     background-color: #DDD;
     font-weight: bold;
 }
-

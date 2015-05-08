@@ -1,14 +1,10 @@
-﻿body {
-    background-color: #F1FFFA;
-}
+﻿body { background-color: #F1FFFA; }
 
 .main-container {
+    border: 1px solid #818181;
+    border-radius: 14px;
     margin: 60px 0;
     padding: 10px;
-    border-radius: 14px;
-    border: 1px solid #818181;
 }
 
-.main-container div:nth-child(2){
-    margin:20px 0px;
-}
+.main-container div:nth-child(2) { margin: 20px 0px; }

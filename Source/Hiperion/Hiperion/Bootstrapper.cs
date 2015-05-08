@@ -1,10 +1,8 @@
-﻿using Castle.Core.Resource;
-using Castle.Windsor;
-using Castle.Windsor.Configuration.Interpreters;
-using Hiperion.Infrastructure.Ioc;
-
-namespace Hiperion
+﻿namespace Hiperion
 {
+    using Castle.Windsor;
+    using Infrastructure.Ioc;
+
     public static class Bootstrapper
     {
         public static IWindsorContainer InitializeContainer()

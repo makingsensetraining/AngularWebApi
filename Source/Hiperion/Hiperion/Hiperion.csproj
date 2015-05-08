@@ -166,6 +166,10 @@
     <Compile Include="Infrastructure\Automapper\IObjectMapperConfigurator.cs" />
     <Compile Include="Infrastructure\Ioc\WindsorDependencyResolver.cs" />
     <Compile Include="Infrastructure\Ioc\WindsorDependencyScope.cs" />
+    <Compile Include="Migrations\201505081556371_User-20150508-daltamirano.cs" />
+    <Compile Include="Migrations\201505081556371_User-20150508-daltamirano.Designer.cs">
+      <DependentUpon>201505081556371_User-20150508-daltamirano.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\UserDto.cs" />
     <Compile Include="Properties\Annotations.cs" />
@@ -199,6 +203,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201505081556371_User-20150508-daltamirano.resx">
+      <DependentUpon>201505081556371_User-20150508-daltamirano.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
