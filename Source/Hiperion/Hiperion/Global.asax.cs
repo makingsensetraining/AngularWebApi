@@ -1,7 +1,4 @@
-﻿using System.Data.Entity;
-using Hiperion.Infrastructure.EF;
-
-namespace Hiperion
+﻿namespace Hiperion
 {
     using System;
     using System.Web;
@@ -9,6 +6,9 @@ namespace Hiperion
     using System.Web.Routing;
     using System.Web.Http;
     using Castle.Windsor;
+
+    using System.Data.Entity;
+    using Infrastructure.EF;
 
     public class Global : HttpApplication
     {
