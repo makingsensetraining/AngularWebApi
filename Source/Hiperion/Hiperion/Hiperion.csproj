@@ -159,6 +159,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\karma.conf.js" />
     <Content Include="Scripts\ng-table-export.js" />
     <Content Include="Scripts\ng-table.js" />
     <Content Include="Scripts\ng-table.min.js" />
@@ -207,6 +208,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\ng-table.min.js.map" />
     <Content Include="package.json" />
+    <Content Include="Scripts\package.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
