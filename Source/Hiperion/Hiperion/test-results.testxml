@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<Tests>
+  <Test>
+    <Name>Test 001 OK (Chrome 42.0.2311 (Windows 8.1))</Name>
+    <DisplayName>Test 001 OK (Chrome 42.0.2311 (Windows 8.1))</DisplayName>
+    <Outcome>Passed</Outcome>
+  </Test>
+  <Test>
+    <Name>Test 002 Ok (Chrome 42.0.2311 (Windows 8.1))</Name>
+    <DisplayName>Test 002 Ok (Chrome 42.0.2311 (Windows 8.1))</DisplayName>
+    <Outcome>Passed</Outcome>
+  </Test>
+  <Test>
+    <Name>Test 003 - User Controller test 003.1 (Chrome 42.0.2311 (Windows 8.1))</Name>
+    <DisplayName>Test 003 - User Controller test 003.1 (Chrome 42.0.2311 (Windows 8.1))</DisplayName>
+    <Outcome>Passed</Outcome>
+  </Test>
+  <Test>
+    <Name>Test 003 - User Controller test 003.2 (Chrome 42.0.2311 (Windows 8.1))</Name>
+    <DisplayName>Test 003 - User Controller test 003.2 (Chrome 42.0.2311 (Windows 8.1))</DisplayName>
+    <Outcome>Passed</Outcome>
+  </Test>
+  <Test>
+    <Name>Test 003 - User Controller test 003.3 (Chrome 42.0.2311 (Windows 8.1))</Name>
+    <DisplayName>Test 003 - User Controller test 003.3 (Chrome 42.0.2311 (Windows 8.1))</DisplayName>
+    <Outcome>Passed</Outcome>
+  </Test>
+  <Test>
+    <Name>Test 004 - Home Controller test 004.1 (Chrome 42.0.2311 (Windows 8.1))</Name>
+    <DisplayName>Test 004 - Home Controller test 004.1 (Chrome 42.0.2311 (Windows 8.1))</DisplayName>
+    <Outcome>Passed</Outcome>
+  </Test>
+  <Test>
+    <Name>Test 004 - Home Controller test 004.2 (Chrome 42.0.2311 (Windows 8.1))</Name>
+    <DisplayName>Test 004 - Home Controller test 004.2 (Chrome 42.0.2311 (Windows 8.1))</DisplayName>
+    <Outcome>Passed</Outcome>
+  </Test>
+  <Test>
+    <Name>Test 004 - Home Controller test 004.3 (Chrome 42.0.2311 (Windows 8.1))</Name>
+    <DisplayName>Test 004 - Home Controller test 004.3 (Chrome 42.0.2311 (Windows 8.1))</DisplayName>
+    <Outcome>Passed</Outcome>
+  </Test>
+</Tests>

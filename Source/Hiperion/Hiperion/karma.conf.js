@@ -14,7 +14,15 @@ module.exports = function(config) {
 
 
     // list of files / patterns to load in the browser
-    files: ['App/*.js','Scripts/*.js', 'test.js'],
+    files: ['Scripts/angular.js',
+            'Scripts/angular-route.js',
+            'Scripts/angular-mocks.js',
+            'Scripts/ng-table.js',
+            'Scripts/ng-table-export.js',
+            'Scripts/ngDialog.js',            
+            'App/scripts/app.js',
+            'App/scripts/controllers/**/*.js',
+            'Test/test.js'],
 
 
     // list of files to exclude
