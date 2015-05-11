@@ -14,5 +14,8 @@
 
         [Column("LastName")]
         public string LastName { get; set; }
+
+        [Column("Age")]
+        public int Age { get; set; }
     }
 }

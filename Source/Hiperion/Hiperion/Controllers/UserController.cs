@@ -16,6 +16,7 @@
             _userServices = userServices;
         }
 
+        //GET: /api/User
         [HttpGet]
         public HttpResponseMessage Get()
         {

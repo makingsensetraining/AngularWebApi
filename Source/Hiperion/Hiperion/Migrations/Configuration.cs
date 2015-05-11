@@ -17,7 +17,8 @@ namespace Hiperion.Migrations
                 new User
                 {
                     FirstName = "John",
-                    LastName = "Doe"
+                    LastName = "Doe",
+                    Age = 50
                 });
             //  This method will be called after migrating to the latest version.
 
