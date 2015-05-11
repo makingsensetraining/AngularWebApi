@@ -7,7 +7,7 @@
     using Castle.MicroKernel.Lifestyle;
     using Castle.Windsor;
 
-    public class WindsorDependencyScope : IDependencyScope
+    internal sealed class WindsorDependencyScope : IDependencyScope
     {
         private readonly IWindsorContainer _container;
         private readonly IDisposable _scope;

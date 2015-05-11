@@ -180,9 +180,14 @@
     <Compile Include="Infrastructure\Automapper\IObjectMapperConfigurator.cs" />
     <Compile Include="Infrastructure\Ioc\WindsorDependencyResolver.cs" />
     <Compile Include="Infrastructure\Ioc\WindsorDependencyScope.cs" />
+    <Compile Include="Infrastructure\Mappings\UserMappers.cs" />
     <Compile Include="Migrations\201505081556371_User-20150508-daltamirano.cs" />
     <Compile Include="Migrations\201505081556371_User-20150508-daltamirano.Designer.cs">
       <DependentUpon>201505081556371_User-20150508-daltamirano.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505112052015_AgeAddedtoUser-20150511-daltamirano.cs" />
+    <Compile Include="Migrations\201505112052015_AgeAddedtoUser-20150511-daltamirano.Designer.cs">
+      <DependentUpon>201505112052015_AgeAddedtoUser-20150511-daltamirano.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\UserDto.cs" />
@@ -197,7 +202,7 @@
     <Compile Include="Infrastructure\EF\HiperionDbContext.cs" />
     <Compile Include="Infrastructure\Ioc\WindsorInstaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Interfaces\IUserServices.cs" />
+    <Compile Include="Services\IUserServices.cs" />
     <Compile Include="Services\UserServices.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -218,10 +223,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Services\Interfaces\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201505081556371_User-20150508-daltamirano.resx">
       <DependentUpon>201505081556371_User-20150508-daltamirano.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505112052015_AgeAddedtoUser-20150511-daltamirano.resx">
+      <DependentUpon>201505112052015_AgeAddedtoUser-20150511-daltamirano.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
@@ -235,7 +244,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>11165</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
