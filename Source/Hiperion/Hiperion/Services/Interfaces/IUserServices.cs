@@ -1,4 +1,4 @@
-﻿namespace Hiperion.Services
+﻿namespace Hiperion.Services.Interfaces
 {
     using System.Collections.Generic;
     using Models;

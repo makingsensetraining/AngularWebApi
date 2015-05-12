@@ -176,6 +176,7 @@
     <Compile Include="Bootstrapper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Domain\Role.cs" />
     <Compile Include="Infrastructure\Automapper\AutomapperConfiguration.cs" />
     <Compile Include="Infrastructure\Automapper\IObjectMapperConfigurator.cs" />
     <Compile Include="Infrastructure\Ioc\WindsorDependencyResolver.cs" />
@@ -188,6 +189,10 @@
     <Compile Include="Migrations\201505112052015_AgeAddedtoUser-20150511-daltamirano.cs" />
     <Compile Include="Migrations\201505112052015_AgeAddedtoUser-20150511-daltamirano.Designer.cs">
       <DependentUpon>201505112052015_AgeAddedtoUser-20150511-daltamirano.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505122051446_Roles-20150512-daltamirano.cs" />
+    <Compile Include="Migrations\201505122051446_Roles-20150512-daltamirano.Designer.cs">
+      <DependentUpon>201505122051446_Roles-20150512-daltamirano.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\UserDto.cs" />
@@ -231,6 +236,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505112052015_AgeAddedtoUser-20150511-daltamirano.resx">
       <DependentUpon>201505112052015_AgeAddedtoUser-20150511-daltamirano.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505122051446_Roles-20150512-daltamirano.resx">
+      <DependentUpon>201505122051446_Roles-20150512-daltamirano.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

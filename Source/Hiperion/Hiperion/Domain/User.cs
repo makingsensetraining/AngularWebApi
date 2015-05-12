@@ -1,5 +1,6 @@
 ﻿namespace Hiperion.Domain
 {
+    using System;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
@@ -17,5 +18,10 @@
 
         [Column("Age")]
         public int Age { get; set; }
+
+        [ForeignKey("Role")]
+        public int? RoleId { get; set; }
+
+        public virtual Role Role { get; set; }
     }
 }

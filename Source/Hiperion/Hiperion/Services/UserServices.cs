@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using AutoMapper;
     using Domain;
+    using Interfaces;
     using Models;
     using Repositories.Interfaces;
 

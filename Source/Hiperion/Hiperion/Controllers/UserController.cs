@@ -4,7 +4,7 @@
     using System.Net.Http;
     using System.Web.Http;
     using Models;
-    using Services;
+    using Services.Interfaces;
 
     public class UserController : ApiController
     {

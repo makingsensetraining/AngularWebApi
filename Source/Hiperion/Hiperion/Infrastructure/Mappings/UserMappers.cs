@@ -9,9 +9,11 @@
     {
         public void Apply()
         {
-            Mapper.CreateMap<User, UserDto>();
+            Mapper.CreateMap<User, UserDto>()
+                .ForMember(user => user.Role, opt => opt.ResolveUsing<RoleMapper>());
 
-            Mapper.CreateMap<UserDto, User>();
+            Mapper.CreateMap<UserDto, User>()
+                .ForMember(user => user.RoleId, opt => opt.ResolveUsing<RoleMapper>());
         }
     }
 }
