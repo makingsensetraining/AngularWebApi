@@ -1,24 +1,4 @@
-﻿<!DOCTYPE html>
-<html lang="en-US" ng-app="hiperionApp">
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hiperion Application V0.1</title>
-    <link rel="shortcut icon" href="~/Content/Images/favicon.ico" type="image/x-icon" />
-    <!-- Styles Includes -->
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/ng-table.min.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/ngDialog.min.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/ngDialog-theme-default.min.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/ngDialog-theme-plain.min.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/ngDialog-custom-width.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/table.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/dialog.css" rel="stylesheet" type="text/css" />
-    <!-- /Styles Includes -->    
-</head>
-
-<body ng-controller="HomeCtrl">
+﻿<div ng-controller="HomeCtrl">
     <!-- Navigation -->
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-header">
@@ -39,7 +19,6 @@
         </div>
     </div>
     <!-- /Navigation -->
-
     <!-- Content -->
     <div class="container-fluid" id="main">
         <div class="row-fluid">
@@ -47,23 +26,4 @@
             <ng-view></ng-view>
         </div>
     </div>
-    <!-- /Content -->
-
-    <!-- JavaScript Includes -->
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/angular.js"></script>
-    <script src="~/Scripts/angular-route.js"></script>
-    <script src="~/Scripts/angular-mocks.js"></script>
-    <script src="~/Scripts/ng-table.js"></script>
-    <script src="~/Scripts/ng-table-export.js"></script>  
-    <script src="~/Scripts/ngDialog.js"></script>
-    <script src="~/App/scripts/app.js"></script>
-    <script src="~/App/scripts/controllers/home.js"></script>
-    <script src="~/App/scripts/controllers/user.js"></script>
-    <script src="~/App/scripts/controllers/about.js"></script>
-</body>
-</html>
-
-
+</div>
