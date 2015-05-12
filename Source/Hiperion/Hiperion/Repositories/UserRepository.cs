@@ -24,12 +24,14 @@
         public void SaveOrUpdateUser(User user)
         {
             _context.Entry(user).State = user.Id == 0 ? EntityState.Added : EntityState.Modified;
+            _context.SaveChanges();
         }
 
         public void DeleteUser(int id)
         {
             User user = _context.Entity<User>().Single(i => i.Id == id);
             _context.Entity<User>().Remove(user);
+            _context.SaveChanges();
         }
     }
 }

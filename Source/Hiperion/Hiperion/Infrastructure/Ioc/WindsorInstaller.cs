@@ -22,8 +22,8 @@
                     .DependsOn(Parameter.ForKey("connectionString").Eq(connectionString)),
                 Types.FromThisAssembly()
                     .Where(type => (type.Name.EndsWith("Services") ||
-                                   type.Name.EndsWith("Repository") ||
-                                   type.Name.EndsWith("Controller")) && type.IsClass)
+                                    type.Name.EndsWith("Repository") ||
+                                    type.Name.EndsWith("Controller")) && type.IsClass)
                     .WithService.DefaultInterfaces()
                     .LifestyleTransient()
                 );

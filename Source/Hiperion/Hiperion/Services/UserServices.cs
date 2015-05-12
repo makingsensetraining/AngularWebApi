@@ -17,16 +17,16 @@
 
         public IEnumerable<UserDto> GetAllUsers()
         {
-            IList<User> users = _repository.GetAllValues();
+            var users = _repository.GetAllValues();
 
-            IList<UserDto> userDtos = Mapper.Map<IList<User>, IList<UserDto>>(users);
+            var userDtos = Mapper.Map<IList<User>, IList<UserDto>>(users);
 
             return userDtos;
         }
 
         public bool SaveOrUpdateUser(UserDto userDto)
         {
-            User user = Mapper.Map<UserDto, User>(userDto);
+            var user = Mapper.Map<UserDto, User>(userDto);
 
             //add some bussines logic before update DB
 
