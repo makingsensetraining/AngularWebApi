@@ -29,7 +29,7 @@
 
         public void DeleteUser(int id)
         {
-            User user = _context.Entity<User>().Single(i => i.Id == id);
+            var user = _context.Entity<User>().Single(i => i.Id == id);
             _context.Entity<User>().Remove(user);
             _context.SaveChanges();
         }

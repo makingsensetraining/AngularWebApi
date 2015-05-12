@@ -1,6 +1,5 @@
 ﻿namespace Hiperion.Controllers
 {
-    using System.Collections.Generic;
     using System.Net;
     using System.Net.Http;
     using System.Web.Http;
@@ -20,7 +19,7 @@
         [HttpGet]
         public HttpResponseMessage Get()
         {
-            IEnumerable<UserDto> users = _userServices.GetAllUsers();
+            var users = _userServices.GetAllUsers();
             return users == null
                 ? Request.CreateResponse(HttpStatusCode.NotFound)
                 : Request.CreateResponse(HttpStatusCode.OK, users);

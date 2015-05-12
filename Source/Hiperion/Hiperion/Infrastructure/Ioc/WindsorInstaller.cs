@@ -13,7 +13,7 @@
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["HiperionDb"].ConnectionString;
+            var connectionString = ConfigurationManager.ConnectionStrings["HiperionDb"].ConnectionString;
 
             container.Register(
                 Component.For<IDbContext>()
