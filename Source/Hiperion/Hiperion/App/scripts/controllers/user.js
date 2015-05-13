@@ -1,12 +1,15 @@
 'use strict';
 
 angular.module('hiperionApp')
-    .controller('UserCtrl', function ($scope, $http, $filter, ngTableParams, $sce, ngDialog) {
+    .controller('UserCtrl', function ($scope, $http, $filter, ngTableParams, $sce, ngDialog, userService) {
         var data = [];
         $scope.id = '';
         $scope.name = '';
         $scope.lastName = '';
         $scope.age = '';
+        $scope.role = '';
+        $scope.roles = [{ id: 1, name: 'Role 01' }, { id: 2, name: 'Role 02' }, { id: 3, name: 'Role 03' }];
+        $scope.userToDeleteId = 0;
 
         loadUsers();
 
@@ -32,12 +35,12 @@ angular.module('hiperionApp')
 
         $scope.addNewUser = function () {
             clearData();
-            openDialog();
+            openUserDialog();
         };
 
         $scope.editUser = function (user) {
             loadUserInDialog(user);
-            openDialog();
+            openUserDialog();
         };
 
         $scope.saveUser = function () {
@@ -57,15 +60,12 @@ angular.module('hiperionApp')
         };
            
         $scope.removeUser = function (user) {
-            $http.delete('/api/User?id=' + user.id)
-                 .success(function () {
-                     loadUsers();
-                 });
-
-            //data = _.filter(data, function (item) {
-            //    return item.id != user.id;
-            //});
-            //$scope.tableParams.reload();
+            $scope.userToDeleteId = user.id;
+            openConfirmDeleteDialog();
+        };
+        
+        $scope.getCurrentTime = function () {
+            return userService.getTime();
         };
 
         function loadUsers() {
@@ -87,7 +87,7 @@ angular.module('hiperionApp')
             $scope.age = user.age;
         }
 
-        function openDialog() {
+        function openUserDialog() {
             ngDialog.openConfirm({
                 template: 'App/views/userDialog.html',
                 className: 'ngdialog-theme-default',
@@ -100,11 +100,31 @@ angular.module('hiperionApp')
             });
         }
 
+        function openConfirmDeleteDialog() {
+            ngDialog.openConfirm({
+                template: 'App/views/deleteUserDialog.html',
+                className: 'ngdialog-theme-default',
+                //preCloseCallback: 'preCloseCallbackOnScope',
+                scope: $scope
+            }).then(function (value) {
+                deleteUser();
+            });
+        }
+
         function clearData() {
             $scope.id = '';
             $scope.name = '';
             $scope.lastName = '';
             $scope.age = '';
+            $scope.userToDeleteId = 0;
+        }
+
+        function deleteUser() {
+            $http.delete('/api/User?id=' + $scope.userToDeleteId)
+                    .success(function () {
+                        loadUsers();
+                        clearData();
+                    });
         }
     })
     .filter('userRange', function () {
