@@ -55,17 +55,17 @@ angular.module('hiperionApp')
                      loadUsers();
                  });
         };
-
-        $scope.cancelEditUser = function () {
-            $scope.edit = false;
-        };
-
+           
         $scope.removeUser = function (user) {
-            $http.delete('/api/User?id=' + user.id);
-            data = _.filter(data, function (item) {
-                return item.id != user.id;
-            });
-            $scope.tableParams.reload();
+            $http.delete('/api/User?id=' + user.id)
+                 .success(function () {
+                     loadUsers();
+                 });
+
+            //data = _.filter(data, function (item) {
+            //    return item.id != user.id;
+            //});
+            //$scope.tableParams.reload();
         };
 
         function loadUsers() {
