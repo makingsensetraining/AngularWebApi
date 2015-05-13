@@ -1,13 +1,13 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-
-namespace Hiperion.Repositories
+﻿namespace Hiperion.Repositories
 {
+    using System.Collections.Generic;
     using System.Data.Entity;
+    using System.Linq;
     using Domain;
     using Infrastructure.EF.Interfaces;
+    using Interfaces;
 
-    public class RoleRepository
+    public class RoleRepository : IRoleRepository
     {
         private readonly IDbContext _context;
 
@@ -19,6 +19,11 @@ namespace Hiperion.Repositories
         public IList<Role> GetAllValues()
         {
             return _context.Entity<Role>().ToList();
+        }
+
+        public Role GetRole(int id)
+        {
+            return _context.Entity<Role>().FirstOrDefault(x => x.Id == id);
         }
 
         public void SaveOrUpdateRole(Role role)

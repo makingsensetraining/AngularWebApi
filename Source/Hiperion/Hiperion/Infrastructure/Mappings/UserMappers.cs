@@ -10,10 +10,10 @@
         public void Apply()
         {
             Mapper.CreateMap<User, UserDto>()
-                .ForMember(user => user.Role, opt => opt.ResolveUsing<RoleMapper>());
+                .ForMember(user => user.Role, opt => opt.MapFrom(entity => entity.RoleId));
 
             Mapper.CreateMap<UserDto, User>()
-                .ForMember(user => user.RoleId, opt => opt.ResolveUsing<RoleMapper>());
+                .ForMember(user => user.Role, opt => opt.ResolveUsing<IntToRoleMapper>().FromMember(user => user.Role));
         }
     }
 }

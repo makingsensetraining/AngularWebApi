@@ -1,18 +1,17 @@
-﻿using System.Collections.Generic;
-
-namespace Hiperion.Services
+﻿namespace Hiperion.Services
 {
+    using System.Collections.Generic;
     using AutoMapper;
     using Domain;
     using Interfaces;
     using Models;
     using Repositories.Interfaces;
 
-    public class RolesServices : IRolesServices
+    public class RoleServices : IRoleServices
     {
         private readonly IRoleRepository _repository;
 
-        public RolesServices(IRoleRepository repository)
+        public RoleServices(IRoleRepository repository)
         {
             _repository = repository;
         }

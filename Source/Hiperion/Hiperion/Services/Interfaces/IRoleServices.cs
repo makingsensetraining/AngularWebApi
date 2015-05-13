@@ -1,10 +1,9 @@
 ﻿namespace Hiperion.Services.Interfaces
 {
     using System.Collections.Generic;
-    using Domain;
     using Models;
 
-    public interface IRolesServices
+    public interface IRoleServices
     {
         IEnumerable<RoleDto> GetAllRoles();
 

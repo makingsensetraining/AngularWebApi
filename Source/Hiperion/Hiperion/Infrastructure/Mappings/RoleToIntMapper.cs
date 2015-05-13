@@ -3,7 +3,7 @@
     using AutoMapper;
     using Domain;
 
-    public class RoleMapper : ValueResolver<Role, int>
+    public class RoleToIntMapper : ValueResolver<Role, int>
     {
         protected override int ResolveCore(Role source)
         {

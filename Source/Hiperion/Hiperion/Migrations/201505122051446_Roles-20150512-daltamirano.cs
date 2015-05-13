@@ -1,8 +1,7 @@
 namespace Hiperion.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class Roles20150512daltamirano : DbMigration
     {
         public override void Up()
