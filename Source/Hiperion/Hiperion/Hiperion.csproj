@@ -181,7 +181,8 @@
     <Compile Include="Infrastructure\Automapper\IObjectMapperConfigurator.cs" />
     <Compile Include="Infrastructure\Ioc\WindsorDependencyResolver.cs" />
     <Compile Include="Infrastructure\Ioc\WindsorDependencyScope.cs" />
-    <Compile Include="Infrastructure\Mappings\RoleMapper.cs" />
+    <Compile Include="Infrastructure\Mappings\IntToRoleMapper.cs" />
+    <Compile Include="Infrastructure\Mappings\RoleToIntMapper.cs" />
     <Compile Include="Infrastructure\Mappings\UserMappers.cs" />
     <Compile Include="Migrations\201505081556371_User-20150508-daltamirano.cs" />
     <Compile Include="Migrations\201505081556371_User-20150508-daltamirano.Designer.cs">
@@ -211,9 +212,9 @@
     <Compile Include="Infrastructure\EF\HiperionDbContext.cs" />
     <Compile Include="Infrastructure\Ioc\WindsorInstaller.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\Interfaces\IRolesServices.cs" />
+    <Compile Include="Services\Interfaces\IRoleServices.cs" />
     <Compile Include="Services\Interfaces\IUserServices.cs" />
-    <Compile Include="Services\RolesServices.cs" />
+    <Compile Include="Services\RoleServices.cs" />
     <Compile Include="Services\UserServices.cs" />
   </ItemGroup>
   <ItemGroup>
