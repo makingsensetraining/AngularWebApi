@@ -14,9 +14,9 @@
         {
         }
 
-        public DbSet<User> Users { get; set; }
+        private DbSet<User> Users { get; set; }
 
-        public DbSet<Role> Roles { get; set; }
+        private DbSet<Role> Roles { get; set; }
 
         public DbSet<T> Entity<T>() where T : class
         {

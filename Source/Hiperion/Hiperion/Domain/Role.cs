@@ -4,10 +4,10 @@
     using System.ComponentModel.DataAnnotations.Schema;
 
     [Table("Roles")]
-    public class Role
+    public class Role : DomainEntity
     {
         [Key]
-        public int Id { get; set; }
+        public new int Id { get; set; }
 
         [Column("Name")]
         public string Name { get; set; }
