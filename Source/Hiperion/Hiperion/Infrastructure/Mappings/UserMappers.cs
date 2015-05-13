@@ -9,9 +9,12 @@
     {
         public void Apply()
         {
-            Mapper.CreateMap<User, UserDto>();
+            Mapper.CreateMap<User, UserDto>()
+                .ForMember(user => user.Role, opt => opt.MapFrom(entity => entity.RoleId));
 
-            Mapper.CreateMap<UserDto, User>();
+            Mapper.CreateMap<UserDto, User>()
+                .ForMember(user => user.Role, opt => opt.ResolveUsing<EntityResolver<Role>>().FromMember(user => user.Role))
+                .ForMember(user => user.RoleId, opt => opt.MapFrom(entity => entity.Role));
         }
     }
 }

@@ -16,9 +16,28 @@ namespace Hiperion.Migrations
             context.Entity<User>().AddOrUpdate(p => p.Id,
                 new User
                 {
+                    Id = 1,
                     FirstName = "John",
                     LastName = "Doe",
-                    Age = 50
+                    Age = 50,
+                    RoleId = 1
+                });
+
+            context.Entity<Role>().AddOrUpdate(role => role.Id,
+                new Role()
+                {
+                    Id = 1,
+                    Name = "Administrator"
+                },
+                new Role()
+                {
+                    Id = 2,
+                    Name = "User"
+                },
+                new Role()
+                {
+                    Id = 3,
+                    Name = "Collaborator"
                 });
             //  This method will be called after migrating to the latest version.
 

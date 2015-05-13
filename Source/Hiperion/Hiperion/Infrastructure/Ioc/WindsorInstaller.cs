@@ -8,18 +8,24 @@
     using Castle.Windsor;
     using EF;
     using EF.Interfaces;
+    using Mappings;
 
     public class WindsorInstaller : IWindsorInstaller
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["HiperionDb"].ConnectionString;
+            var connectionString = ConfigurationManager.ConnectionStrings["HiperionDb"].ConnectionString;
 
             container.Register(
                 Component.For<IDbContext>()
                     .ImplementedBy<HiperionDbContext>()
                     .LifestylePerWebRequest()
                     .DependsOn(Parameter.ForKey("connectionString").Eq(connectionString)),
+
+                Component.For(typeof(EntityResolver<>))
+                    .ImplementedBy(typeof(EntityResolver<>))
+                    .LifestyleTransient(),
+
                 Types.FromThisAssembly()
                     .Where(type => (type.Name.EndsWith("Services") ||
                                     type.Name.EndsWith("Repository") ||

@@ -1,7 +1,6 @@
 ﻿namespace Hiperion.Infrastructure.Automapper
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
     using AutoMapper;
@@ -13,7 +12,7 @@
             if (serviceLocator != null)
                 Mapper.Configuration.ConstructServicesUsing(serviceLocator);
 
-            IEnumerable<IObjectMapperConfigurator> configurators = Assembly.GetExecutingAssembly().GetTypes()
+            var configurators = Assembly.GetExecutingAssembly().GetTypes()
                 .Where(t => typeof (IObjectMapperConfigurator).IsAssignableFrom(t)
                             && !t.IsAbstract
                             && !t.IsInterface)

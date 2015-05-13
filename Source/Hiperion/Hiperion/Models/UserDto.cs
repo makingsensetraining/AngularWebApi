@@ -17,6 +17,9 @@
         [JsonProperty("age")]
         public int Age { get; set; }
 
+        [JsonProperty("role")]
+        public int Role { get; set; }
+
         public virtual string ToJson()
         {
             return JsonConvert.SerializeObject(this);
