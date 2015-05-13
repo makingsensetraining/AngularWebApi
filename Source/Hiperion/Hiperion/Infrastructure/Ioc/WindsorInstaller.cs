@@ -29,7 +29,6 @@
                 Types.FromThisAssembly()
                     .Where(type => (type.Name.EndsWith("Services") ||
                                     type.Name.EndsWith("Repository") ||
-                                    type.Name.EndsWith("Resolver") ||
                                     type.Name.EndsWith("Controller")) && type.IsClass)
                     .WithService.DefaultInterfaces()
                     .LifestyleTransient()
