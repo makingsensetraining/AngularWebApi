@@ -12,12 +12,10 @@
         <table ng-table="tableParams" class="table" template-pagination="customPager" show-filter="true" export-csv="csv">
             <tr ng-repeat="user in $data" ng-class="{ 'emphasis': user.age > 50 }">
                 <td data-title="'First Name'" sortable="'name'" filter="{ 'name': 'text' }">
-                    <span ng-if="!user.$edit">{{user.name}}</span>
-                    <div ng-if="user.$edit"><input class="form-control" type="text" ng-model="user.name" /></div>
+                    {{user.name}}
                 </td>
                 <td data-title="'Last Name'" sortable="'lastName'" filter="{ 'lastName': 'text' }">
-                    <span ng-if="!user.$edit">{{user.lastName}}</span>
-                    <div ng-if="user.$edit"><input class="form-control" type="text" ng-model="user.lastName" /></div>
+                    {{user.lastName}}
                 </td>
                 <td data-title="'Age'" sortable="'age'">
                     <span ng-class="{ 'plus': user.age < 50,'minus': user.age > 50 }">{{user.age}}</span>
@@ -25,8 +23,6 @@
                 <td data-title="'Actions'">
                     <a ng-if="!user.$edit" href="" class="btn btn-default btn-xs" ng-click="editUser(user);">Edit</a>
                     <a ng-if="!user.$edit" href="" class="btn btn-danger btn-xs" ng-click="removeUser(user)">Remove</a>
-                    <a ng-if="user.$edit" href="" class="btn btn-primary btn-xs" ng-click="saveUser(user);">Save</a>
-                    <a ng-if="user.$edit" href="" class="btn btn-default btn-xs" ng-click="cancelEditUser(user)">Cancel</a>
                 </td>
             </tr>
         </table>
