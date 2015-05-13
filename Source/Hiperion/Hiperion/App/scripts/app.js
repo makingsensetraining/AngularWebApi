@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-angular.module('hiperionApp', ['ngRoute', 'ngTable', 'ngTableExport', 'ngDialog'])
+angular.module('hiperionApp', ['ngRoute', 'ngTable', 'ngTableExport', 'ngDialog', 'ngLoadingSpinner'])
     .config(function($routeProvider) {
         $routeProvider
             .when('/', { templateUrl: 'App/views/home.html', controller: 'HomeCtrl' })

@@ -23,4 +23,3 @@ angular.module("ngTableExport", []).config(["$compileProvider", function(a) { a.
         };
     }
 ]);
-//# sourceMappingURL=ng-table-export.map
