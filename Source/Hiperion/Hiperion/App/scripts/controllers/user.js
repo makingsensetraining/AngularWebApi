@@ -12,6 +12,7 @@ angular.module('hiperionApp')
         $scope.userToDeleteId = 0;
 
         loadUsers();
+        loadRoles();
 
         $scope.tableParams = new ngTableParams({
             page: 1,
@@ -48,7 +49,8 @@ angular.module('hiperionApp')
                 id: $scope.id,
                 name: $scope.name,
                 lastName: $scope.lastName,
-                age: $scope.age
+                age: $scope.age,
+                role: $scope.role
             };
 
             $http.post('/api/User',
@@ -80,11 +82,21 @@ angular.module('hiperionApp')
                 });
         }
 
+        function loadRoles() {
+            $http.get('api/Role').
+            success(function (result, status, headers, config) {
+                console.log(result);
+                $scope.roles = result;
+            })
+            .error(function (result, status, headers, config) { });
+        }
+
         function loadUserInDialog(user) {
             $scope.id = user.id;
             $scope.name = user.name;
             $scope.lastName = user.lastName;
             $scope.age = user.age;
+            $scope.role = user.role;
         }
 
         function openUserDialog() {
@@ -116,6 +128,7 @@ angular.module('hiperionApp')
             $scope.name = '';
             $scope.lastName = '';
             $scope.age = '';
+            $scope.role = '';
             $scope.userToDeleteId = 0;
         }
 
