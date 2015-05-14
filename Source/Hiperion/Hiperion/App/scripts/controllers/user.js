@@ -8,7 +8,7 @@ angular.module('hiperionApp')
         $scope.lastName = '';
         $scope.age = '';
         $scope.role = '';
-        $scope.roles = [{ id: 1, name: 'Role 01' }, { id: 2, name: 'Role 02' }, { id: 3, name: 'Role 03' }];
+        $scope.roles = [];
         $scope.userToDeleteId = 0;
 
         loadUsers();
@@ -84,8 +84,7 @@ angular.module('hiperionApp')
 
         function loadRoles() {
             $http.get('api/Role').
-            success(function (result, status, headers, config) {
-                console.log(result);
+            success(function (result, status, headers, config) {      
                 $scope.roles = result;
             })
             .error(function (result, status, headers, config) { });
@@ -101,7 +100,7 @@ angular.module('hiperionApp')
 
         function openUserDialog() {
             ngDialog.openConfirm({
-                template: 'App/views/userDialog.html',
+                template: 'App/views/templates/userDialog.html',
                 className: 'ngdialog-theme-default',
                 preCloseCallback: 'preCloseCallbackOnScope',
                 scope: $scope
@@ -114,7 +113,7 @@ angular.module('hiperionApp')
 
         function openConfirmDeleteDialog() {
             ngDialog.openConfirm({
-                template: 'App/views/deleteUserDialog.html',
+                template: 'App/views/templates/deleteUserDialog.html',
                 className: 'ngdialog-theme-default',
                 //preCloseCallback: 'preCloseCallbackOnScope',
                 scope: $scope

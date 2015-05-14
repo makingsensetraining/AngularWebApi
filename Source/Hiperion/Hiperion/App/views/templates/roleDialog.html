@@ -1,0 +1,10 @@
+﻿<div class="ngdialog-message">
+    <div class="dialog-new-container">
+        <input type="hidden" ng-model="id">
+        <div><label>Name:</label><input type="text" ng-model="name" /></div>
+        <div class="ngdialog-buttons">
+            <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm({id:id, name: name});">Save</button>
+            <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog('button')">Cancel</button>
+        </div>
+    </div>
+</div>
