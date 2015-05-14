@@ -19,8 +19,7 @@ namespace Hiperion.Migrations
                     Id = 1,
                     FirstName = "John",
                     LastName = "Doe",
-                    Age = 50,
-                    RoleId = 1
+                    Age = 50
                 });
 
             context.Entity<Role>().AddOrUpdate(role => role.Id,

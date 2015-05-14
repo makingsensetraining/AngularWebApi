@@ -190,6 +190,7 @@
     <Compile Include="Infrastructure\Ioc\WindsorDependencyResolver.cs" />
     <Compile Include="Infrastructure\Ioc\WindsorDependencyScope.cs" />
     <Compile Include="Infrastructure\Mappings\EntityResolver.cs" />
+    <Compile Include="Infrastructure\Mappings\ManyToManyEntityResolver.cs" />
     <Compile Include="Infrastructure\Mappings\RoleMappers.cs" />
     <Compile Include="Infrastructure\Mappings\UserMappers.cs" />
     <Compile Include="Migrations\201505081556371_User-20150508-daltamirano.cs" />
@@ -204,7 +205,12 @@
     <Compile Include="Migrations\201505122051446_Roles-20150512-daltamirano.Designer.cs">
       <DependentUpon>201505122051446_Roles-20150512-daltamirano.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505141848076_UserHasRoles-20150514-daltamirano.cs" />
+    <Compile Include="Migrations\201505141848076_UserHasRoles-20150514-daltamirano.Designer.cs">
+      <DependentUpon>201505141848076_UserHasRoles-20150514-daltamirano.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ModelEntity.cs" />
     <Compile Include="Models\RoleDto.cs" />
     <Compile Include="Models\UserDto.cs" />
     <Compile Include="Properties\Annotations.cs" />
@@ -253,6 +259,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505122051446_Roles-20150512-daltamirano.resx">
       <DependentUpon>201505122051446_Roles-20150512-daltamirano.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505141848076_UserHasRoles-20150514-daltamirano.resx">
+      <DependentUpon>201505141848076_UserHasRoles-20150514-daltamirano.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

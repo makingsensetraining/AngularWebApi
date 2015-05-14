@@ -1,7 +1,6 @@
 ﻿namespace Hiperion.Repositories
 {
     using System.Collections.Generic;
-    using System.Data.Entity;
     using System.Linq;
     using Domain;
     using Infrastructure.EF.Interfaces;
@@ -23,8 +22,18 @@
 
         public void SaveOrUpdateUser(User user)
         {
-            _context.Entry(user).State = user.Id == 0 ? EntityState.Added : EntityState.Modified;
-            _context.SaveChanges();
+            if (user.Id != 0)
+            {
+                var original = _context.Entity<User>().SingleOrDefault(x => x.Id == user.Id);
+                if (original != null)
+                    original.Roles = user.Roles;
+                _context.SaveChanges();
+            }
+            else
+            {
+                _context.Entity<User>().Add(user);
+                _context.SaveChanges();
+            }
         }
 
         public void DeleteUser(int id)
