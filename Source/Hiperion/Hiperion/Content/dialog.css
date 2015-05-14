@@ -15,7 +15,7 @@ button.ngdialog-button:focus { border: solid black 1px !important; }
     width: 272px;
 }
 
-.dialog-new-container select { margin-left: -4px; }
+.dialog-new-container select { margin-left: -4px; width:100px;}
 
 .dialog-new-container div:last-child { margin-top: 20px; }
 
