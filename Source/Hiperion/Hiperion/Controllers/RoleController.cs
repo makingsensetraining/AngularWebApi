@@ -15,7 +15,7 @@
             _roleServices = roleServices;
         }
 
-        //GET: /api/User
+        //GET: /api/Role
         [HttpGet]
         public HttpResponseMessage Get()
         {
@@ -25,14 +25,14 @@
                 : Request.CreateResponse(HttpStatusCode.OK, roles);
         }
 
-        [HttpPost] // POST api/user
+        [HttpPost] // POST api/Role
         public HttpResponseMessage Post(RoleDto role)
         {
             _roleServices.SaveOrUpdateRole(role);
             return Request.CreateResponse(HttpStatusCode.OK, role);
         }
 
-        [HttpDelete] // DELETE api/user/5
+        [HttpDelete] // DELETE api/Role/5
         public HttpResponseMessage Delete(int id)
         {
             _roleServices.DeleteRole(id);
