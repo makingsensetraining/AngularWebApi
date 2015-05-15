@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-
-namespace Hiperion.Infrastructure.Mappings
+﻿namespace Hiperion.Infrastructure.Mappings
 {
+    using System.Collections.Generic;
     using System.Linq;
     using AutoMapper;
     using Domain;

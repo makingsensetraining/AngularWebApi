@@ -184,6 +184,7 @@
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Domain\DomainEntity.cs" />
+    <Compile Include="Domain\Mappings\RoleMap.cs" />
     <Compile Include="Domain\Role.cs" />
     <Compile Include="Infrastructure\Automapper\AutomapperConfiguration.cs" />
     <Compile Include="Infrastructure\Automapper\IObjectMapperConfigurator.cs" />
