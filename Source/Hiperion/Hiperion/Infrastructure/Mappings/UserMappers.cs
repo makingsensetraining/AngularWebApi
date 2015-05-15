@@ -12,7 +12,8 @@
             Mapper.CreateMap<User, UserDto>();
 
             Mapper.CreateMap<UserDto, User>()
-                .ForMember(user => user.Roles, opt => opt.ResolveUsing<ManyToManyEntityResolver<RoleDto, Role>>().FromMember(user => user.Roles));
+                .ForMember(user => user.Roles,
+                    opt => opt.ResolveUsing<ManyToManyEntityResolver<RoleDto, Role>>().FromMember(user => user.Roles));
         }
     }
 }

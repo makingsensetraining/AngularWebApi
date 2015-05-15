@@ -23,17 +23,17 @@ namespace Hiperion.Migrations
                 });
 
             context.Entity<Role>().AddOrUpdate(role => role.Id,
-                new Role()
+                new Role
                 {
                     Id = 1,
                     Name = "Administrator"
                 },
-                new Role()
+                new Role
                 {
                     Id = 2,
                     Name = "User"
                 },
-                new Role()
+                new Role
                 {
                     Id = 3,
                     Name = "Collaborator"

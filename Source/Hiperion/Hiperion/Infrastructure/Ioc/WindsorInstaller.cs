@@ -21,15 +21,12 @@
                     .ImplementedBy<HiperionDbContext>()
                     .LifestylePerWebRequest()
                     .DependsOn(Parameter.ForKey("connectionString").Eq(connectionString)),
-
-                Component.For(typeof(EntityResolver<>))
-                    .ImplementedBy(typeof(EntityResolver<>))
+                Component.For(typeof (EntityResolver<>))
+                    .ImplementedBy(typeof (EntityResolver<>))
                     .LifestyleTransient(),
-
-                Component.For(typeof(ManyToManyEntityResolver<,>))
-                    .ImplementedBy(typeof(ManyToManyEntityResolver<,>))
+                Component.For(typeof (ManyToManyEntityResolver<,>))
+                    .ImplementedBy(typeof (ManyToManyEntityResolver<,>))
                     .LifestyleTransient(),
-
                 Types.FromThisAssembly()
                     .Where(type => (type.Name.EndsWith("Services") ||
                                     type.Name.EndsWith("Repository") ||
