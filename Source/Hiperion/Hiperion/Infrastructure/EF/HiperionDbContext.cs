@@ -14,6 +14,16 @@
         {
         }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>().HasMany<Role>(user => user.Roles).WithMany(role => role.Users).Map(configuration =>
+            {
+                configuration.MapLeftKey("Userid");
+                configuration.MapRightKey("Roleid");
+                configuration.ToTable("UserHasRoles");
+            });
+        }
+
         private DbSet<User> Users { get; set; }
 
         private DbSet<Role> Roles { get; set; }

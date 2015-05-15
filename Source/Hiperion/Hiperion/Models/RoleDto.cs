@@ -2,11 +2,8 @@
 {
     using Newtonsoft.Json;
 
-    public class RoleDto
+    public class RoleDto : ModelEntity
     {
-        [JsonProperty("id")]
-        public int Id { get; set; }
-
         [JsonProperty("name")]
         public string Name { get; set; }
     }
