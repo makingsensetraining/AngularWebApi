@@ -1,6 +1,10 @@
 ﻿namespace Hiperion.Models
 {
+    #region References
+
     using Newtonsoft.Json;
+
+    #endregion
 
     public class ModelEntity
     {

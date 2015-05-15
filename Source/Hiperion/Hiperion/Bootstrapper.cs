@@ -1,7 +1,11 @@
 ﻿namespace Hiperion
 {
+    #region References
+
     using Castle.Windsor;
     using Infrastructure.Ioc;
+
+    #endregion
 
     public static class Bootstrapper
     {

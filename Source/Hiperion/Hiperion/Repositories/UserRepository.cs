@@ -1,11 +1,15 @@
 ﻿namespace Hiperion.Repositories
 {
+    #region References
+
     using System.Collections.Generic;
     using System.Data.Entity.Migrations;
     using System.Linq;
     using Domain;
     using Infrastructure.EF.Interfaces;
     using Interfaces;
+
+    #endregion
 
     public class UserRepository : IUserRepository
     {
@@ -54,6 +58,11 @@
             var user = _context.Entity<User>().Single(i => i.Id == id);
             _context.Entity<User>().Remove(user);
             _context.SaveChanges();
+        }
+
+        public User GetUser(int id)
+        {
+            return _context.Entity<User>().FirstOrDefault(x => x.Id == id);
         }
     }
 }

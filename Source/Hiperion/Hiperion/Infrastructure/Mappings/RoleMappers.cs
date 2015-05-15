@@ -1,9 +1,13 @@
 ﻿namespace Hiperion.Infrastructure.Mappings
 {
+    #region References
+
     using Automapper;
     using AutoMapper;
     using Domain;
     using Models;
+
+    #endregion
 
     public class RoleMappers : IObjectMapperConfigurator
     {

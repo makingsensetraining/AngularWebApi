@@ -1,8 +1,12 @@
 namespace Hiperion.Migrations
 {
+    #region References
+
     using System.Data.Entity.Migrations;
     using Domain;
     using Infrastructure.EF;
+
+    #endregion
 
     internal sealed class Configuration : DbMigrationsConfiguration<HiperionDbContext>
     {

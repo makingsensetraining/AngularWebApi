@@ -1,11 +1,14 @@
 ﻿namespace Hiperion.Repositories
 {
+    #region References
+
     using System.Collections.Generic;
-    using System.Data.Entity;
     using System.Linq;
     using Domain;
     using Infrastructure.EF.Interfaces;
     using Interfaces;
+
+    #endregion
 
     public class RoleRepository : IRoleRepository
     {
@@ -28,8 +31,21 @@
 
         public void SaveOrUpdateRole(Role role)
         {
-            _context.Entry(role).State = role.Id == 0 ? EntityState.Added : EntityState.Modified;
-            _context.SaveChanges();
+            if (role.Id != 0)
+            {
+                var existingRole = _context.Entity<Role>().FirstOrDefault(r => r.Id == role.Id);
+                if (existingRole == null) return;
+
+                var attachedRole = _context.Entry(existingRole);
+                attachedRole.CurrentValues.SetValues(role);
+
+                _context.SaveChanges();
+            }
+            else
+            {
+                _context.Entity<Role>().Add(role);
+                _context.SaveChanges();
+            }
         }
 
         public void DeleteRole(int id)

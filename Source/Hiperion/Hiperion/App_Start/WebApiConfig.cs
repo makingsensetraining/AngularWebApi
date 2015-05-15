@@ -1,6 +1,10 @@
 ﻿namespace Hiperion
 {
+    #region References
+
     using System.Web.Http;
+
+    #endregion
 
     public static class WebApiConfig
     {
