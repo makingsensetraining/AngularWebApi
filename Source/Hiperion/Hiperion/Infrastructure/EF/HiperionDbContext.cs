@@ -2,6 +2,7 @@
 {
     using System.Data.Entity;
     using Domain;
+    using Domain.Mappings;
     using Interfaces;
 
     public class HiperionDbContext : DbContext, IDbContext
@@ -16,12 +17,8 @@
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<User>().HasMany<Role>(user => user.Roles).WithMany(role => role.Users).Map(configuration =>
-            {
-                configuration.MapLeftKey("Userid");
-                configuration.MapRightKey("Roleid");
-                configuration.ToTable("UserHasRoles");
-            });
+            modelBuilder.Configurations.Add(new RoleMap());
+            modelBuilder.Configurations.Add(new UserMap());
         }
 
         private DbSet<User> Users { get; set; }
