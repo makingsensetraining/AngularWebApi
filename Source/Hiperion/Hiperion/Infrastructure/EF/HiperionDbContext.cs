@@ -15,19 +15,19 @@
         {
         }
 
+        private IDbSet<User> Users { get; set; }
+
+        private IDbSet<Role> Roles { get; set; }
+
+        public virtual IDbSet<T> Entity<T>() where T : class
+        {
+            return Set<T>();
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Configurations.Add(new RoleMap());
             modelBuilder.Configurations.Add(new UserMap());
-        }
-
-        private DbSet<User> Users { get; set; }
-
-        private DbSet<Role> Roles { get; set; }
-
-        public DbSet<T> Entity<T>() where T : class
-        {
-            return Set<T>();
         }
     }
 }

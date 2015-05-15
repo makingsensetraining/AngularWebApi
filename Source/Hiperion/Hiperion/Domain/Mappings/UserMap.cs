@@ -24,7 +24,7 @@
                     m.MapLeftKey("Userid");
                     m.MapRightKey("Roleid");
                 }
-            );
+                );
         }
     }
 }
