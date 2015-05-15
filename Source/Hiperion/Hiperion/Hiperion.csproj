@@ -114,13 +114,17 @@
     <Content Include="App\scripts\app.js" />
     <Content Include="App\scripts\controllers\about.js" />
     <Content Include="App\scripts\controllers\home.js" />
+    <Content Include="App\scripts\controllers\role.js" />
     <Content Include="App\scripts\controllers\user.js" />
     <Content Include="App\scripts\directives\timeHeader.js" />
     <Content Include="App\scripts\services\user.js" />
     <Content Include="App\views\about.html" />
+    <Content Include="App\views\templates\deleteRoleDialog.html" />
     <Content Include="App\views\home.html" />
-    <Content Include="App\views\deleteUserDialog.html" />
+    <Content Include="App\views\templates\deleteUserDialog.html" />
+    <Content Include="App\views\roles.html" />
     <Content Include="App\views\templates\timeHeader.html" />
+    <Content Include="App\views\templates\roleDialog.html" />
     <Content Include="App\views\users.html" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -171,7 +175,7 @@
     <Content Include="Scripts\ng-table.min.js" />
     <Content Include="Scripts\ngDialog.js" />
     <Content Include="Scripts\ngDialog.min.js" />
-    <Content Include="App\views\userDialog.html" />
+    <Content Include="App\views\templates\userDialog.html" />
     <Content Include="karma.conf.js" />
     <Content Include="Test\test.js" />
     <Content Include="Web.config" />

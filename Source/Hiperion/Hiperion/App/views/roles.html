@@ -1,0 +1,33 @@
+﻿<div ng-controller="RoleCtrl">
+    <div class="main-container">
+        <div>
+            <a class="btn btn-sm btn-success" href="" ng-click="addNewRole();">Add new Role</a>
+        </div>
+        <span us-spinner="{radius:20, width:4, length: 10}"></span>
+        <table ng-table="tableParams" class="table" template-pagination="customPager">
+            <tr ng-repeat="role in $data" ng-class="{ 'emphasis': role.id  == 1 }">
+                <td data-title="'Name'" sortable="'name'" >
+                    {{role.name}}
+                </td>
+                <td data-title="'Actions'">
+                    <a href="" class="btn btn-default btn-xs action-button" ng-click="editRole(role);">Edit</a>
+                    <a href="" class="btn btn-danger btn-xs action-button" ng-click="removeRole(role)">Remove</a>
+                </td>
+            </tr>
+        </table>
+        <!-- Table Temaplate -->
+        <script type="text/ng-template" id="customPager">
+            <ul class="pager ng-cloak">
+                <li ng-repeat="page in pages"
+                    ng-class="{'disabled': !page.active, 'previous': page.type == 'prev', 'next': page.type == 'next'}"
+                    ng-show="page.type == 'prev' || page.type == 'next'" ng-switch="page.type">
+                    <a ng-switch-when="prev" ng-click="params.page(page.number)" href="">&laquo; Previous</a>
+                    <a ng-switch-when="next" ng-click="params.page(page.number)" href="">Next &raquo;</a>
+                </li>
+            </ul>
+        </script>
+        <!-- /Table Temaplate -->
+    </div>
+</div>
+
+

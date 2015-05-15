@@ -20,11 +20,11 @@
                     {{user.lastName}}
                 </td>
                 <td data-title="'Age'" sortable="'age'">
-                    <span ng-class="{ 'plus': user.age < 50,'minus': user.age > 50 }">{{user.age}}</span>
+                    <span ng-class="{ 'plus': user.age < 50,'minus': user.age >= 50 }">{{user.age}}</span>
                 </td>
                 <td data-title="'Actions'">
-                    <a  href="" class="btn btn-default btn-xs" ng-click="editUser(user);">Edit</a>
-                    <a  href="" class="btn btn-danger btn-xs" ng-click="removeUser(user)">Remove</a>
+                    <a href="" class="btn btn-default btn-xs action-button" ng-click="editUser(user);">Edit</a>
+                    <a href="" class="btn btn-danger btn-xs action-button" ng-click="removeUser(user)">Remove</a>
                 </td>
             </tr>
         </table>
