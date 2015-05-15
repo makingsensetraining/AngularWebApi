@@ -1,9 +1,13 @@
 ﻿namespace Hiperion.Infrastructure.Mappings
 {
+    #region References
+
     using System.Linq;
     using AutoMapper;
     using Domain;
     using EF.Interfaces;
+
+    #endregion
 
     public class EntityResolver<T> : ValueResolver<int, T> where T : DomainEntity
     {

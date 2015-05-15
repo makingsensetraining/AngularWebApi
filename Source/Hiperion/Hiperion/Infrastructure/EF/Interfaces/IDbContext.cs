@@ -1,7 +1,11 @@
 ﻿namespace Hiperion.Infrastructure.EF.Interfaces
 {
+    #region References
+
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+
+    #endregion
 
     public interface IDbContext
     {

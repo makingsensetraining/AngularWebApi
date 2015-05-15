@@ -1,7 +1,11 @@
 ﻿namespace Hiperion.Domain
 {
+    #region References
+
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations.Schema;
+
+    #endregion
 
     [Table("Users")]
     public class User : DomainEntity

@@ -10,7 +10,11 @@
 
 namespace Hiperion.Annotations
 {
+    #region References
+
     using System;
+
+    #endregion
 
     /// <summary>
     ///     Indicates that the value of the marked element could be <c>null</c> sometimes,

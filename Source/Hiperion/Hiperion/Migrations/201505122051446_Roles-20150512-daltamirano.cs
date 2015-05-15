@@ -1,6 +1,10 @@
 namespace Hiperion.Migrations
 {
+    #region References
+
     using System.Data.Entity.Migrations;
+
+    #endregion
 
     public partial class Roles20150512daltamirano : DbMigration
     {

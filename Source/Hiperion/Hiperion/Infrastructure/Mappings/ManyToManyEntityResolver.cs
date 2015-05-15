@@ -1,11 +1,15 @@
 ﻿namespace Hiperion.Infrastructure.Mappings
 {
+    #region References
+
     using System.Collections.Generic;
     using System.Linq;
     using AutoMapper;
     using Domain;
     using EF.Interfaces;
     using Models;
+
+    #endregion
 
     public class ManyToManyEntityResolver<T, U> : ValueResolver<IEnumerable<T>, IEnumerable<U>>
         where T : ModelEntity //Dto

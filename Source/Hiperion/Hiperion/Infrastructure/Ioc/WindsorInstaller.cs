@@ -1,7 +1,10 @@
 ﻿namespace Hiperion.Infrastructure.Ioc
 {
+    #region References
+
     using System.Configuration;
     using System.Web.Http;
+    using AutoMapper;
     using Automapper;
     using Castle.MicroKernel.Registration;
     using Castle.MicroKernel.SubSystems.Configuration;
@@ -10,13 +13,16 @@
     using EF.Interfaces;
     using Mappings;
 
+    #endregion
+
     public class WindsorInstaller : IWindsorInstaller
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             var connectionString = ConfigurationManager.ConnectionStrings["HiperionDb"].ConnectionString;
-
             container.Register(
+                Component.For<IMappingEngine>()
+                    .Instance(Mapper.Engine),
                 Component.For<IDbContext>()
                     .ImplementedBy<HiperionDbContext>()
                     .LifestylePerWebRequest()

@@ -1,10 +1,14 @@
 ﻿namespace Hiperion.Controllers
 {
+    #region References
+
     using System.Net;
     using System.Net.Http;
     using System.Web.Http;
     using Models;
     using Services.Interfaces;
+
+    #endregion
 
     public class RoleController : ApiController
     {

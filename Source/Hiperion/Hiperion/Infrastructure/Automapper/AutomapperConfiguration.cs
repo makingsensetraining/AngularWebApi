@@ -1,9 +1,13 @@
 ﻿namespace Hiperion.Infrastructure.Automapper
 {
+    #region References
+
     using System;
     using System.Linq;
     using System.Reflection;
     using AutoMapper;
+
+    #endregion
 
     public static class AutomapperConfiguration
     {

@@ -1,9 +1,13 @@
 ﻿namespace Hiperion.Infrastructure.EF
 {
+    #region References
+
     using System.Data.Entity;
     using Domain;
     using Domain.Mappings;
     using Interfaces;
+
+    #endregion
 
     public class HiperionDbContext : DbContext, IDbContext
     {

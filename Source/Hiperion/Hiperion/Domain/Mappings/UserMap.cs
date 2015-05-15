@@ -1,6 +1,10 @@
 ﻿namespace Hiperion.Domain.Mappings
 {
+    #region References
+
     using System.Data.Entity.ModelConfiguration;
+
+    #endregion
 
     public class UserMap : EntityTypeConfiguration<User>
     {
