@@ -14,6 +14,17 @@
             Property(t => t.FirstName).HasColumnName("FirstName");
             Property(t => t.LastName).HasColumnName("LastName");
             Property(t => t.Age).HasColumnName("Age");
+
+            // Relationships
+            HasMany(t => t.Roles)
+                .WithMany(t => t.Users)
+                .Map(m =>
+                {
+                    m.ToTable("UserHasRoles");
+                    m.MapLeftKey("Userid");
+                    m.MapRightKey("Roleid");
+                }
+            );
         }
     }
 }
