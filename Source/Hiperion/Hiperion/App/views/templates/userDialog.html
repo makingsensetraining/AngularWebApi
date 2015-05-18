@@ -8,9 +8,8 @@
             <select ng-model="age" ng-options="n for n in [] | userRange:1:101"></select>
         </div>
         <div>
-            <label>Role:</label>
-            <select ng-model="role" ng-options="role.id as role.name for role in roles "></select>
-        </div>
+            <div ng-dropdown-multiselect="" options="roles" selected-model="userRoles" class="user-role-multiselect"></div>
+        </div>    
         <div class="ngdialog-buttons">
             <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm({id:id, name: name, lastName:lastName, age: age, role: role});">Save</button>
             <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog('button')">Cancel</button>

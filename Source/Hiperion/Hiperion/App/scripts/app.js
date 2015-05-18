@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-angular.module('hiperionApp', ['ngRoute', 'ngTable', 'ngTableExport', 'ngDialog', 'ngLoadingSpinner'])
+angular.module('hiperionApp', ['ngRoute', 'ngTable', 'ngTableExport', 'ngDialog', 'ngLoadingSpinner', 'angularjs-dropdown-multiselect'])
     .config(function($routeProvider) {
         $routeProvider
             .when('/', { templateUrl: 'App/views/users.html', controller: 'UserCtrl' })
