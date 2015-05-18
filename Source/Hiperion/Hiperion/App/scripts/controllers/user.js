@@ -87,9 +87,9 @@ angular.module('hiperionApp')
         function loadRoles() {
             $http.get('api/Role').
                 success(function(result, status, headers, config) {
-                result.forEach(function (role) {
-                    $scope.roles.push({ id: role.id, label: role.name });
-                });
+                    result.forEach(function(role) {
+                        $scope.roles.push({ id: role.id, label: role.name });
+                    });
                 })
                 .error(function(result, status, headers, config) {});
         }
@@ -102,7 +102,7 @@ angular.module('hiperionApp')
 
             if (user.roles) {
                 $scope.userRoles = [];
-                user.roles.forEach(function (role) {
+                user.roles.forEach(function(role) {
                     $scope.userRoles.push({ id: role.id, label: role.name });
                 });
             }
