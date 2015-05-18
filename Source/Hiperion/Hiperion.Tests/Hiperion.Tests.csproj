@@ -109,6 +109,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="ControllerTests\RoleControllerTests.cs" />
     <Compile Include="ControllerTests\UserControllerTests.cs" />
     <Compile Include="Helpers\Mocking.cs" />
     <Compile Include="Helpers\ResourceLists.cs" />
