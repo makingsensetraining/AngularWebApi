@@ -22,7 +22,7 @@
             var connectionString = ConfigurationManager.ConnectionStrings["HiperionDb"].ConnectionString;
             container.Register(
                 Component.For<IMappingEngine>()
-                    .Instance(Mapper.Engine),
+                    .UsingFactoryMethod(() => Mapper.Engine),
                 Component.For<IDbContext>()
                     .ImplementedBy<HiperionDbContext>()
                     .LifestylePerWebRequest()
