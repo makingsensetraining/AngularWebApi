@@ -7,7 +7,7 @@ angular.module('hiperionApp')
         $scope.name = '';
         $scope.userToDeleteId = 0;
 
-        loadCounties();
+        loadCountries();
 
         $scope.tableParams = new ngTableParams({
             page: 1,
@@ -49,7 +49,7 @@ angular.module('hiperionApp')
                     JSON.stringify(countryDto),
                     { headers: { 'Content-Type': 'application/json' } })
                 .success(function() {
-                    loadCounties();
+                    loadCountries();
                 });
         };
 
@@ -58,7 +58,7 @@ angular.module('hiperionApp')
             openConfirmDeleteDialog();
         };
 
-        function loadCounties() {
+        function loadCountries() {
             //$http.get('api/Country').
             //    success(function(result, status, headers, config) {
             //        data = result;
