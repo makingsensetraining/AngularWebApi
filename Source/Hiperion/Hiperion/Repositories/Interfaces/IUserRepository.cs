@@ -1,7 +1,11 @@
 ﻿namespace Hiperion.Repositories.Interfaces
 {
+    #region References
+
     using System.Collections.Generic;
     using Domain;
+
+    #endregion
 
     public interface IUserRepository
     {

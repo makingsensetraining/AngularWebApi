@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('hiperionApp')
-    .controller('UserCtrl', function ($scope, $http, $filter, ngTableParams, $sce, ngDialog, userService) {
+    .controller('UserCtrl', function($scope, $http, $filter, ngTableParams, $sce, ngDialog, userService) {
         var data = [];
         $scope.id = '';
         $scope.name = '';
@@ -22,7 +22,7 @@ angular.module('hiperionApp')
             filter: { name: '', lastName: '' }
         }, {
             total: data.length,
-            getData: function ($defer, params) {
+            getData: function($defer, params) {
                 var orderedData = params.filter() ?
                     $filter('filter')(data, params.filter()) :
                     data;
@@ -35,18 +35,18 @@ angular.module('hiperionApp')
             }
         });
 
-        $scope.addNewUser = function () {
+        $scope.addNewUser = function() {
             clearData();
             openUserDialog();
         };
 
-        $scope.editUser = function (user) {
+        $scope.editUser = function(user) {
             console.log(user);
             setUser(user);
             openUserDialog();
         };
 
-        $scope.saveUser = function () {
+        $scope.saveUser = function() {
             var userdto = {
                 id: $scope.id,
                 name: $scope.name,
@@ -56,29 +56,29 @@ angular.module('hiperionApp')
             };
 
             $http.post('/api/User',
-                       JSON.stringify(userdto),
-                       { headers: { 'Content-Type': 'application/json' } })
-                 .success(function () {
-                     loadUsers();
-                 });
+                    JSON.stringify(userdto),
+                    { headers: { 'Content-Type': 'application/json' } })
+                .success(function() {
+                    loadUsers();
+                });
         };
-           
-        $scope.removeUser = function (user) {
+
+        $scope.removeUser = function(user) {
             $scope.userToDeleteId = user.id;
             openConfirmDeleteDialog();
         };
-        
-        $scope.getCurrentTime = function () {
+
+        $scope.getCurrentTime = function() {
             return userService.getTime();
         };
 
         function loadUsers() {
             $http.get('/api/User').
-                success(function (result, status, headers, config) {
+                success(function(result, status, headers, config) {
                     data = result;
                     $scope.tableParams.reload();
                 })
-                .error(function (result, status, headers, config) {
+                .error(function(result, status, headers, config) {
                     // called asynchronously if an error occurs
                     // or server returns response with an error status.
                 });
@@ -86,13 +86,12 @@ angular.module('hiperionApp')
 
         function loadRoles() {
             $http.get('api/Role').
-            success(function (result, status, headers, config) {      
-                //$scope.fullRoles = result;
+                success(function(result, status, headers, config) {
                 result.forEach(function (role) {
                     $scope.roles.push({ id: role.id, label: role.name });
                 });
-            })
-            .error(function (result, status, headers, config) { });
+                })
+                .error(function(result, status, headers, config) {});
         }
 
         function setUser(user) {
@@ -115,10 +114,10 @@ angular.module('hiperionApp')
                 className: 'ngdialog-theme-default',
                 preCloseCallback: 'preCloseCallbackOnScope',
                 scope: $scope
-            }).then(function (user) {
+            }).then(function(user) {
                 setUser(user);
                 $scope.saveUser();
-                clearData();               
+                clearData();
             });
         }
 
@@ -127,7 +126,7 @@ angular.module('hiperionApp')
                 template: 'App/views/templates/deleteUserDialog.html',
                 className: 'ngdialog-theme-default',
                 scope: $scope
-            }).then(function (value) {
+            }).then(function(value) {
                 deleteUser();
             });
         }
@@ -144,14 +143,15 @@ angular.module('hiperionApp')
 
         function deleteUser() {
             $http.delete('/api/User?id=' + $scope.userToDeleteId)
-                    .success(function () {
-                        loadUsers();
-                        clearData();
-                    });
+                .success(function() {
+                    loadUsers();
+                    clearData();
+                });
         }
+
     })
-    .filter('userRange', function () {
-        return function (input, min, max) {
+    .filter('userRange', function() {
+        return function(input, min, max) {
             min = parseInt(min);
             max = parseInt(max);
             for (var i = min; i < max; i++)

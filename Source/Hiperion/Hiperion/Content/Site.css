@@ -1,6 +1,4 @@
-﻿body {
-    background-color: #F1FFFA;
-}
+﻿body { background-color: #F1FFFA; }
 
 .main-container {
     border: 1px solid #818181;
@@ -9,27 +7,20 @@
     padding: 10px;
 }
 
-    .main-container div:nth-child(1),
-    .main-container div:nth-child(3) {
-        margin-bottom:20px;
-    }
+.main-container div:nth-child(1),
+.main-container div:nth-child(3) { margin-bottom: 20px; }
 
-    .main-container div:nth-child(2) {
-        margin: 20px 0px;
-    }
+.main-container div:nth-child(2) { margin: 20px 0px; }
 
-.time-header {
+.time-header { }
+
+.time-header span:nth-child(1) { font-size: 12px; }
+
+.time-header span:nth-child(2) {
+    color: #ff6a00;
+    font-size: 14px;
+    font-weight: bold;
 }
-
-    .time-header span:nth-child(1) {
-        font-size: 12px;
-    }
-
-    .time-header span:nth-child(2) {
-        color: #ff6a00;
-        font-size: 14px;
-        font-weight: bold;
-    }
 
 .action-button{
     float:right;

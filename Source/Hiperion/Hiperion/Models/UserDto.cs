@@ -1,7 +1,11 @@
 ﻿namespace Hiperion.Models
 {
+    #region References
+
     using System.Collections.Generic;
     using Newtonsoft.Json;
+
+    #endregion
 
     [JsonObject(MemberSerialization.OptIn)]
     public class UserDto : ModelEntity

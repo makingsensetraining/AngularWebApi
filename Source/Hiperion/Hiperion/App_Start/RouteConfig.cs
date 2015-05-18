@@ -1,7 +1,11 @@
 ﻿namespace Hiperion
 {
+    #region References
+
     using System.Web.Mvc;
     using System.Web.Routing;
+
+    #endregion
 
     public class RouteConfig
     {

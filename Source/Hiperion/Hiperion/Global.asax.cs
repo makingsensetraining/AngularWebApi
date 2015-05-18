@@ -1,5 +1,7 @@
 ﻿namespace Hiperion
 {
+    #region References
+
     using System;
     using System.Data.Entity;
     using System.Web;
@@ -8,6 +10,8 @@
     using System.Web.Routing;
     using Castle.Windsor;
     using Infrastructure.EF;
+
+    #endregion
 
     public class Global : HttpApplication
     {

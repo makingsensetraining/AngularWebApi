@@ -1,8 +1,12 @@
 namespace Hiperion.Migrations
 {
+    #region References
+
     using System.Data.Entity.Migrations;
     using Domain;
     using Infrastructure.EF;
+
+    #endregion
 
     internal sealed class Configuration : DbMigrationsConfiguration<HiperionDbContext>
     {
@@ -23,17 +27,17 @@ namespace Hiperion.Migrations
                 });
 
             context.Entity<Role>().AddOrUpdate(role => role.Id,
-                new Role()
+                new Role
                 {
                     Id = 1,
                     Name = "Administrator"
                 },
-                new Role()
+                new Role
                 {
                     Id = 2,
                     Name = "User"
                 },
-                new Role()
+                new Role
                 {
                     Id = 3,
                     Name = "Collaborator"

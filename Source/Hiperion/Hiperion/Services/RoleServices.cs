@@ -1,5 +1,7 @@
 ﻿namespace Hiperion.Services
 {
+    #region References
+
     using System.Collections.Generic;
     using AutoMapper;
     using Domain;
@@ -7,27 +9,31 @@
     using Models;
     using Repositories.Interfaces;
 
+    #endregion
+
     public class RoleServices : IRoleServices
     {
+        private readonly IMappingEngine _mapperEngine;
         private readonly IRoleRepository _repository;
 
-        public RoleServices(IRoleRepository repository)
+        public RoleServices(IRoleRepository repository, IMappingEngine mapperEngine)
         {
             _repository = repository;
+            _mapperEngine = mapperEngine;
         }
 
         public IEnumerable<RoleDto> GetAllRoles()
         {
             var roles = _repository.GetAllValues();
 
-            var roleDtos = Mapper.Map<IList<Role>, IList<RoleDto>>(roles);
+            var roleDtos = _mapperEngine.Map<IList<Role>, IList<RoleDto>>(roles);
 
             return roleDtos;
         }
 
         public bool SaveOrUpdateRole(RoleDto roleDto)
         {
-            var role = Mapper.Map<RoleDto, Role>(roleDto);
+            var role = _mapperEngine.Map<RoleDto, Role>(roleDto);
 
             //add some bussines logic before update DB
 

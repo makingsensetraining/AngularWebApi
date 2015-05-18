@@ -1,5 +1,7 @@
 ﻿namespace Hiperion.Services
 {
+    #region References
+
     using System.Collections.Generic;
     using AutoMapper;
     using Domain;
@@ -7,30 +9,33 @@
     using Models;
     using Repositories.Interfaces;
 
+    #endregion
+
     public class UserServices : IUserServices
     {
+        private readonly IMappingEngine _mapperEngine;
         private readonly IUserRepository _repository;
 
-        public UserServices(IUserRepository repository)
+        public UserServices(IUserRepository repository, IMappingEngine mapperEngine)
         {
             _repository = repository;
+            _mapperEngine = mapperEngine;
         }
 
         public IEnumerable<UserDto> GetAllUsers()
         {
             var users = _repository.GetAllValues();
 
-            var userDtos = Mapper.Map<IList<User>, IList<UserDto>>(users);
+            var userDtos = _mapperEngine.Map<IList<User>, IList<UserDto>>(users);
 
             return userDtos;
         }
 
         public bool SaveOrUpdateUser(UserDto userDto)
         {
-            var user = Mapper.Map<UserDto, User>(userDto);
+            var user = _mapperEngine.Map<UserDto, User>(userDto);
 
             //add some bussines logic before update DB
-
             _repository.SaveOrUpdateUser(user);
 
             return true;

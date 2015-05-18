@@ -1,6 +1,10 @@
 ﻿namespace Hiperion.Domain
 {
+    #region References
+
     using System.ComponentModel.DataAnnotations;
+
+    #endregion
 
     public class DomainEntity
     {
