@@ -98,7 +98,7 @@ angular.module('hiperionApp')
 
             if (user.roles) {
                 $scope.userRoles = [];
-                user.roles.forEach(function (role) {
+                user.roles.forEach(function(role) {
                     $scope.userRoles.push({ id: role.id, label: role.name });
                 });
             }

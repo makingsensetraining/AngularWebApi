@@ -22,17 +22,15 @@
     font-weight: bold;
 }
 
-.action-button{
-    float:right;
-    margin-right:4px;
+.action-button {
+    float: right;
+    margin-right: 4px;
 }
 
-.user-role-multiselect{
-    margin-left:96px;
-}
+.user-role-multiselect { margin-left: 96px; }
 
-.user-role-multiselect button{
-    width:142px;
-    height:30px;
-    margin-bottom:4px;
+.user-role-multiselect button {
+    height: 30px;
+    margin-bottom: 4px;
+    width: 142px;
 }
