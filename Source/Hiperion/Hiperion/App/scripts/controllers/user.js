@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('hiperionApp')
-    .controller('UserCtrl', function($scope, $http, $filter, ngTableParams, $sce, ngDialog, userService) {
+    .controller('UserCtrl', function($scope, $http, $filter, ngTableParams, $sce, ngDialog, roleService, userService) {
         var data = [];
         $scope.id = '';
         $scope.name = '';
@@ -41,7 +41,6 @@ angular.module('hiperionApp')
         };
 
         $scope.editUser = function(user) {
-            console.log(user);
             setUser(user);
             openUserDialog();
         };
@@ -55,12 +54,13 @@ angular.module('hiperionApp')
                 roles: $scope.userRoles
             };
 
-            $http.post('/api/User',
-                    JSON.stringify(userdto),
-                    { headers: { 'Content-Type': 'application/json' } })
-                .success(function() {
+            userService.addUser(userdto).success(function (result) {
+                if (result) {
                     loadUsers();
-                });
+                } else {
+                    alert("couldn't be add the user.");
+                }
+            });
         };
 
         $scope.removeUser = function(user) {
@@ -73,25 +73,21 @@ angular.module('hiperionApp')
         };
 
         function loadUsers() {
-            $http.get('/api/User').
-                success(function(result, status, headers, config) {
+            userService.getUsers().
+                success(function (result, status, headers, config) {
                     data = result;
                     $scope.tableParams.reload();
-                })
-                .error(function(result, status, headers, config) {
-                    // called asynchronously if an error occurs
-                    // or server returns response with an error status.
                 });
         }
 
         function loadRoles() {
-            $http.get('api/Role').
-                success(function(result, status, headers, config) {
-                result.forEach(function (role) {
-                    $scope.roles.push({ id: role.id, label: role.name });
-                });
-                })
-                .error(function(result, status, headers, config) {});
+            roleService.getRoles().
+                success(function (result, status, headers, config) {
+                    $scope.roles = [];
+                    result.forEach(function (role) {
+                        $scope.roles.push({ id: role.id, label: role.name });
+                    });                
+                })                
         }
 
         function setUser(user) {
@@ -149,6 +145,8 @@ angular.module('hiperionApp')
                 });
         }
 
+        $scope._loadRoles = loadRoles;
+        $scope._loadUsers = loadUsers;
     })
     .filter('userRange', function() {
         return function(input, min, max) {
