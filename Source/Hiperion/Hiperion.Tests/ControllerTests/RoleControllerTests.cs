@@ -1,8 +1,7 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace Hiperion.Tests.ControllerTests
+﻿namespace Hiperion.Tests.ControllerTests
 {
+    #region References
+
     using System.Collections.Generic;
     using System.Linq;
     using System.Net;
@@ -10,9 +9,12 @@ namespace Hiperion.Tests.ControllerTests
     using System.Web.Http;
     using Controllers;
     using Helpers;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using Models;
     using Moq;
     using Services.Interfaces;
+
+    #endregion
 
     [TestClass]
     public class RoleControllerTests

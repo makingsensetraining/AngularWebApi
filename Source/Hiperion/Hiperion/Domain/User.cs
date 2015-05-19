@@ -19,6 +19,11 @@
         [Column("Age")]
         public int Age { get; set; }
 
+        [ForeignKey("Country")]
+        public int? CountryId { get; set; }
+
+        public virtual Country Country { get; set; }
+
         public virtual ICollection<Role> Roles { get; set; }
     }
 }

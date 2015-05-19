@@ -19,6 +19,9 @@
         [JsonProperty("age")]
         public int Age { get; set; }
 
+        [JsonProperty("country")]
+        public int Country { get; set; }
+
         [JsonProperty("roles")]
         public IEnumerable<RoleDto> Roles { get; set; }
 

@@ -19,9 +19,11 @@
         {
         }
 
-        private IDbSet<User> Users { get; set; }
-
         private IDbSet<Role> Roles { get; set; }
+
+        private IDbSet<Country> Countries { get; set; }
+
+        private IDbSet<User> Users { get; set; }
 
         public virtual IDbSet<T> Entity<T>() where T : class
         {

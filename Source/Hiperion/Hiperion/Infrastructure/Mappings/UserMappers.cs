@@ -13,9 +13,12 @@
     {
         public void Apply()
         {
-            Mapper.CreateMap<User, UserDto>();
+            Mapper.CreateMap<User, UserDto>()
+                .ForMember(user => user.Country, opt => opt.MapFrom(user => user.CountryId));
 
             Mapper.CreateMap<UserDto, User>()
+                .ForMember(user => user.Country,
+                    opt => opt.ResolveUsing<EntityResolver<Country>>().FromMember(user => user.Country))
                 .ForMember(user => user.Roles,
                     opt => opt.ResolveUsing<ManyToManyEntityResolver<RoleDto, Role>>().FromMember(user => user.Roles));
         }

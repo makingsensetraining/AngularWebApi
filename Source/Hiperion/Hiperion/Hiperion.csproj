@@ -193,6 +193,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Domain\Country.cs" />
     <Compile Include="Domain\DomainEntity.cs" />
     <Compile Include="Domain\Mappings\RoleMap.cs" />
     <Compile Include="Domain\Mappings\UserMap.cs" />
@@ -201,6 +202,7 @@
     <Compile Include="Infrastructure\Automapper\IObjectMapperConfigurator.cs" />
     <Compile Include="Infrastructure\Ioc\WindsorDependencyResolver.cs" />
     <Compile Include="Infrastructure\Ioc\WindsorDependencyScope.cs" />
+    <Compile Include="Infrastructure\Mappings\CountryMappers.cs" />
     <Compile Include="Infrastructure\Mappings\EntityResolver.cs" />
     <Compile Include="Infrastructure\Mappings\ManyToManyEntityResolver.cs" />
     <Compile Include="Infrastructure\Mappings\RoleMappers.cs" />
@@ -221,11 +223,18 @@
     <Compile Include="Migrations\201505141848076_UserHasRoles-20150514-daltamirano.Designer.cs">
       <DependentUpon>201505141848076_UserHasRoles-20150514-daltamirano.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505190303204_Countries-20150518-daltamirano.cs" />
+    <Compile Include="Migrations\201505190303204_Countries-20150518-daltamirano.Designer.cs">
+      <DependentUpon>201505190303204_Countries-20150518-daltamirano.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\CountryDto.cs" />
     <Compile Include="Models\ModelEntity.cs" />
     <Compile Include="Models\RoleDto.cs" />
     <Compile Include="Models\UserDto.cs" />
     <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Repositories\CountryRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ICountryRepository.cs" />
     <Compile Include="Repositories\Interfaces\IRoleRepository.cs" />
     <Compile Include="Repositories\Interfaces\IUserRepository.cs" />
     <Compile Include="Repositories\RoleRepository.cs" />
@@ -274,6 +283,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505141848076_UserHasRoles-20150514-daltamirano.resx">
       <DependentUpon>201505141848076_UserHasRoles-20150514-daltamirano.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505190303204_Countries-20150518-daltamirano.resx">
+      <DependentUpon>201505190303204_Countries-20150518-daltamirano.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
