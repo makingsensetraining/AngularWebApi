@@ -21,7 +21,11 @@ module.exports = function(config) {
             'Scripts/ng-table.js',
             'Scripts/ng-table-export.js',
             'Scripts/ngDialog.js',
+            'Scripts/angular-spinner.min.js',
+            'Scripts/angular-loading-spinner.js',
+            'Scripts/angularjs-dropdown-multiselect.js',
             'App/scripts/app.js',
+            'App/scripts/services/**/*.js',
             'App/scripts/controllers/**/*.js',
             'Test/test.js'
         ],
