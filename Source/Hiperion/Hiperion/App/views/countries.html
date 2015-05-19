@@ -5,13 +5,13 @@
         </div>
         <span us-spinner="{radius:20, width:4, length: 10}"></span>
         <table ng-table="tableParams" class="table" template-pagination="customPager">
-            <tr ng-repeat="role in $data" ng-class="{ 'emphasis': role.id  == 1 }">
+            <tr ng-repeat="country in $data" ng-class="{ 'emphasis': country.id  == 1 }">
                 <td data-title="'Name'" sortable="'name'">
-                    {{role.name}}
+                    {{country.name}}
                 </td>
                 <td data-title="'Actions'">
-                    <a href="" class="btn btn-danger btn-xs action-button" ng-click="removeRole(role)">Remove</a>
-                    <a href="" class="btn btn-default btn-xs action-button" ng-click="editRole(role);">Edit</a>
+                    <a href="" class="btn btn-danger btn-xs action-button" ng-click="removeCountry(country)">Remove</a>
+                    <a href="" class="btn btn-default btn-xs action-button" ng-click="editCountry(country);">Edit</a>
                 </td>
             </tr>
         </table>

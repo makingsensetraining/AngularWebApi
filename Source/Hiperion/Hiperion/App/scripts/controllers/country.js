@@ -1,11 +1,11 @@
 ﻿'use strict';
 
 angular.module('hiperionApp')
-    .controller('CountryCtrl', function ($scope, $http, $filter, ngTableParams, $sce, ngDialog) {    
+    .controller('CountryCtrl', function ($scope, $http, $filter, ngTableParams, $sce, ngDialog, countryService) {    
         var data = [];
         $scope.id = '';
         $scope.name = '';
-        $scope.userToDeleteId = 0;
+        $scope.countryToDeleteId = 0;
 
         loadCountries();
 
@@ -45,26 +45,23 @@ angular.module('hiperionApp')
                 name: $scope.name
             };
 
-            $http.post('/api/Country',
-                    JSON.stringify(countryDto),
-                    { headers: { 'Content-Type': 'application/json' } })
+            countryService.saveCountry(countryDto)
                 .success(function() {
                     loadCountries();
                 });
         };
 
         $scope.removeCountry = function(country) {
-            $scope.userToDeleteId = country.id;
+            $scope.countryToDeleteId = country.id;
             openConfirmDeleteDialog();
         };
 
         function loadCountries() {
-            //$http.get('api/Country').
-            //    success(function(result, status, headers, config) {
-            //        data = result;
-            //        $scope.tableParams.reload();
-            //    })
-            //    .error(function(result, status, headers, config) {});
+            countryService.getCountries().
+                success(function(result, status, headers, config) {
+                    data = result;
+                    $scope.tableParams.reload();
+                })
         }
 
         function loadCountryInDialog(country) {
@@ -98,15 +95,15 @@ angular.module('hiperionApp')
         function clearData() {
             $scope.id = '';
             $scope.name = '';
-            $scope.userToDeleteId = 0;
+            $scope.countryToDeleteId = 0;
         }
 
         function deleteCountry() {
-            //$http.delete('/api/Country?id=' + $scope.userToDeleteId)
-            //    .success(function() {
-            //        loadCountries();
-            //        clearData();
-            //    });
+            countryService.removeCountry($scope.countryToDeleteId).
+                success(function() {
+                    loadCountries();
+                    clearData();
+                });
         }
 
     });
