@@ -1,17 +1,21 @@
 ﻿<div class="ngdialog-message">
     <div class="dialog-new-container">
-        <input type="hidden" ng-model="id">
-        <div><label>First Name:</label><input type="text" ng-model="name" /></div>
-        <div><label>Last Name:</label><input type="text" ng-model="lastName" /></div>
+        <input type="hidden" ng-model="user.id">
+        <div><label>First Name:</label><input type="text" ng-model="user.name" /></div>
+        <div><label>Last Name:</label><input type="text" ng-model="user.lastName" /></div>
         <div>
             <label>Age:</label>
-            <select ng-model="age" ng-options="n for n in [] | userRange:1:101"></select>
+            <select ng-model="user.age" ng-options="n for n in [] | userRange:1:101"></select>
+        </div>
+        <div>
+            <label>Country:</label>
+            <select ng-model="user.country" ng-options="ct.id as ct.name for ct in countries"></select>
         </div>
         <div>
             <div ng-dropdown-multiselect="" options="roles" selected-model="userRoles" class="user-role-multiselect"></div>
         </div>    
         <div class="ngdialog-buttons">
-            <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm({id:id, name: name, lastName:lastName, age: age, role: role});">Save</button>
+            <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm({id:user.id, name: user.name, lastName:user.lastName, age: user.age, country: user.country});">Save</button>
             <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog('button')">Cancel</button>
         </div>
     </div>
