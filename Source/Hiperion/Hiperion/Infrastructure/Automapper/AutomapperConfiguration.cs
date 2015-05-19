@@ -22,7 +22,7 @@
                             && !t.IsInterface)
                 .Select(Activator.CreateInstance).OfType<IObjectMapperConfigurator>();
 
-            foreach (IObjectMapperConfigurator configurator in configurators)
+            foreach (var configurator in configurators)
             {
                 configurator.Apply();
             }

@@ -116,6 +116,7 @@
     <Compile Include="RepositoryTests\RoleRepositoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepositoryTests\UserRepositoryTests.cs" />
+    <Compile Include="ServiceTests\CountryServicesTests.cs" />
     <Compile Include="ServiceTests\RoleServicesTests.cs" />
     <Compile Include="ServiceTests\UserServicesTests.cs" />
   </ItemGroup>

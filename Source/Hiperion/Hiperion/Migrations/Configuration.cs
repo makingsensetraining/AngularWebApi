@@ -17,14 +17,23 @@ namespace Hiperion.Migrations
 
         protected override void Seed(HiperionDbContext context)
         {
-            context.Entity<User>().AddOrUpdate(p => p.Id,
-                new User
+            context.Entity<Country>().AddOrUpdate(p => p.Id,
+                new Country
                 {
                     Id = 1,
-                    FirstName = "John",
-                    LastName = "Doe",
-                    Age = 50
-                });
+                    Name = "Argentina"
+                },
+                new Country
+                {
+                    Id = 2,
+                    Name = "Brasil"
+                },
+                new Country
+                {
+                    Id = 3,
+                    Name = "Chile"
+                }
+                );
 
             context.Entity<Role>().AddOrUpdate(role => role.Id,
                 new Role
@@ -41,6 +50,16 @@ namespace Hiperion.Migrations
                 {
                     Id = 3,
                     Name = "Collaborator"
+                });
+
+            context.Entity<User>().AddOrUpdate(p => p.Id,
+                new User
+                {
+                    Id = 1,
+                    FirstName = "John",
+                    LastName = "Doe",
+                    Age = 50,
+                    CountryId = 1,
                 });
             //  This method will be called after migrating to the latest version.
 

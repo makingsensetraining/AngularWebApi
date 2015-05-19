@@ -55,7 +55,7 @@
             };
 
             var response = userController.Post(new UserDto());
-            
+
             Assert.IsTrue(response.StatusCode == HttpStatusCode.OK);
         }
 

@@ -138,6 +138,44 @@
                     }
                 }
             };
+
+            Countries = new List<Country>
+            {
+                new Country
+                {
+                    Id = 1,
+                    Name = "Argentina"
+                },
+                new Country
+                {
+                    Id = 2,
+                    Name = "Chile"
+                },
+                new Country
+                {
+                    Id = 3,
+                    Name = "Brasil"
+                }
+            };
+
+            CountriesDto = new List<CountryDto>
+            {
+                new CountryDto
+                {
+                    Id = 1,
+                    Name = "Argentina"
+                },
+                new CountryDto
+                {
+                    Id = 2,
+                    Name = "Chile"
+                },
+                new CountryDto
+                {
+                    Id = 3,
+                    Name = "Brasil"
+                }
+            };
         }
 
         public static List<RoleDto> RolesDto { get; set; }
@@ -147,5 +185,9 @@
         public static List<User> Users { get; set; }
 
         public static List<UserDto> UsersDto { get; set; }
+
+        public static List<Country> Countries { get; set; }
+
+        public static List<CountryDto> CountriesDto { get; set; }
     }
 }
