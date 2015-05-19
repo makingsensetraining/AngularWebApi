@@ -10,6 +10,7 @@
     using Models;
     using Moq;
     using Repositories.Interfaces;
+    using Services;
 
     #endregion
 
