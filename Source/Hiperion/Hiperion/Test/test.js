@@ -16,11 +16,11 @@ describe("Test 002.0 - User Controller", function() {
     }));
 
     it('test 002.1', function() {
-        expect(scope.name).toBe('');
+        expect(scope.user.name).toBe('');
     });
 
     it('test 002.2', function() {
-        expect(scope.lastName).toBe('');
+        expect(scope.user.lastName).toBe('');
     });
 });
 

@@ -118,6 +118,7 @@
     <Content Include="App\scripts\controllers\role.js" />
     <Content Include="App\scripts\controllers\user.js" />
     <Content Include="App\scripts\directives\timeHeader.js" />
+    <Content Include="App\scripts\services\country.js" />
     <Content Include="App\scripts\services\role.js" />
     <Content Include="App\scripts\services\user.js" />
     <Content Include="App\views\about.html" />

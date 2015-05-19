@@ -1,19 +1,18 @@
 'use strict';
 
 angular.module('hiperionApp')
-    .controller('UserCtrl', function($scope, $http, $filter, ngTableParams, $sce, ngDialog, roleService, userService) {
+    .controller('UserCtrl', function($scope, $http, $filter, ngTableParams, $sce, ngDialog, roleService, userService, countryService) {
         var data = [];
-        $scope.id = '';
-        $scope.name = '';
-        $scope.lastName = '';
-        $scope.age = '';
+        $scope.user = { id: '', name: '', lastName: '', age: '', country: ''};
         $scope.userRoles = [];
         $scope.roles = [];
         $scope.fullRoles = [];
+        $scope.countries = [];        
         $scope.userToDeleteId = 0;
 
         loadUsers();
         loadRoles();
+        loadCountries();
 
         $scope.tableParams = new ngTableParams({
             page: 1,
@@ -47,10 +46,11 @@ angular.module('hiperionApp')
 
         $scope.saveUser = function() {
             var userdto = {
-                id: $scope.id,
-                name: $scope.name,
-                lastName: $scope.lastName,
-                age: $scope.age,
+                id: $scope.user.id,
+                name: $scope.user.name,
+                lastName: $scope.user.lastName,
+                age: $scope.user.age,
+                country: $scope.user.country,
                 roles: $scope.userRoles
             };
 
@@ -90,12 +90,17 @@ angular.module('hiperionApp')
                 })                
         }
 
-        function setUser(user) {
-            $scope.id = user.id;
-            $scope.name = user.name;
-            $scope.lastName = user.lastName;
-            $scope.age = user.age;
+        function loadCountries() {
+            $scope.countries = [{ id: 1, name: "Argentina" }, { id: 2, name: "Brasil" }, { id: 3, name: "Chile" }];
+        }
 
+        function setUser(user) {
+            $scope.user.id = user.id;
+            $scope.user.name = user.name;
+            $scope.user.lastName = user.lastName;
+            $scope.user.age = user.age;
+            $scope.user.country = user.country;
+            
             if (user.roles) {
                 $scope.userRoles = [];
                 user.roles.forEach(function(role) {
@@ -128,11 +133,7 @@ angular.module('hiperionApp')
         }
 
         function clearData() {
-            $scope.id = '';
-            $scope.name = '';
-            $scope.lastName = '';
-            $scope.age = '';
-            $scope.role = '';
+            $scope.user = { id: '', name: '', lastName: '', age: '', country: '' };
             $scope.userRoles = [];
             $scope.userToDeleteId = 0;
         }
