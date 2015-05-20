@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 angular.module('hiperionApp')
-    .controller('HomeCtrl', function($scope, ngDialog) {
+    .controller('HomeCtrl', function ($scope, ngDialog, authService) {
         $scope.title = 'HOME';
         $scope.name = "";
         $scope.comment = "";
@@ -31,4 +31,19 @@ angular.module('hiperionApp')
             }, function(reason) {
             });
         };
+
+        $scope.signUp = function () {
+            openSignUpDialog();
+        };
+
+        function openSignUpDialog() {
+            ngDialog.openConfirm({
+                template: 'App/views/templates/signupDialog.html',
+                className: 'ngdialog-theme-default',
+                preCloseCallback: 'preCloseCallbackOnScope',
+                scope: $scope
+            }).then(function (signup) {
+                authService.saveRegistration(signup);
+            });
+        }
     });

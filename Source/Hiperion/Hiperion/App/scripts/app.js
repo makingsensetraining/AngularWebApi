@@ -1,6 +1,6 @@
 ﻿'use strict';
 
-angular.module('hiperionApp', ['ngRoute', 'ngTable', 'ngTableExport', 'ngDialog', 'ngLoadingSpinner', 'angularjs-dropdown-multiselect'])
+angular.module('hiperionApp', ['ngRoute', 'ngTable', 'ngTableExport', 'LocalStorageModule', 'ngDialog', 'ngLoadingSpinner', 'angularjs-dropdown-multiselect'])
     .config(function($routeProvider) {
         $routeProvider
             .when('/', { templateUrl: 'App/views/users.html', controller: 'UserCtrl' })
@@ -9,5 +9,4 @@ angular.module('hiperionApp', ['ngRoute', 'ngTable', 'ngTableExport', 'ngDialog'
             .when('/countries', { templateUrl: 'App/views/countries.html', controller: 'CountryCtrl' })
             .when('/about', { templateUrl: 'App/views/about.html', controller: 'AboutCtrl' })
             .otherwise({ redirectTo: '/users' });
-
     });

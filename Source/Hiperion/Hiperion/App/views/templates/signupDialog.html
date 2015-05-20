@@ -1,0 +1,11 @@
+﻿<div class="ngdialog-message">
+    <div class="dialog-new-container">
+        <input type="hidden" ng-model="id">
+        <div><label>Username:</label><input type="text" ng-model="username" /></div>
+        <div><label>Password:</label><input type="password" ng-model="password" /></div>
+        <div class="ngdialog-buttons">
+            <button type="button" class="ngdialog-button ngdialog-button-primary" ng-click="confirm({username:username, password: password});">Signup</button>
+            <button type="button" class="ngdialog-button ngdialog-button-secondary" ng-click="closeThisDialog('button')">Cancel</button>
+        </div>
+    </div>
+</div>

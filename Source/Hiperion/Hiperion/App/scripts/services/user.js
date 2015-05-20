@@ -5,12 +5,12 @@ angular.module('hiperionApp')
         this.getTime = function() {
             return new Date().toUTCString();
         };
-        this.getUsers = function () {
+        this.getUsers = function() {
             return $http.get('/api/User');
         };
-        this.addUser = function (user) {
+        this.addUser = function(user) {
             return $http.post('/api/User',
-                              JSON.stringify(user),
-                              { headers: { 'Content-Type': 'application/json' } });
+                JSON.stringify(user),
+                { headers: { 'Content-Type': 'application/json' } });
         };
     });

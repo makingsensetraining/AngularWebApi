@@ -24,19 +24,19 @@ describe("Test 002.0 - User Controller", function() {
     });
 });
 
-describe("Test 002.1 - User Controller", function () {
+describe("Test 002.1 - User Controller", function() {
 
     beforeEach(module('hiperionApp'));
 
     var userCtrl, scope;
     var rolesFake = [{ name: "Administrator", id: 1 }, { name: "User", id: 2 }, { name: "Collaborator", id: 3 }];
 
-    beforeEach(inject(function ($controller, $rootScope, roleService) {
+    beforeEach(inject(function($controller, $rootScope, roleService) {
         scope = $rootScope.$new();
 
-        spyOn(roleService, 'getRoles').and.callFake(function () {
+        spyOn(roleService, 'getRoles').and.callFake(function() {
             return {
-                success: function (callback) { callback(rolesFake) }
+                success: function(callback) { callback(rolesFake); }
             };
         });
 
@@ -45,37 +45,37 @@ describe("Test 002.1 - User Controller", function () {
         });
     }));
 
-    it('test 002.3', function () {
+    it('test 002.3', function() {
         expect(scope.tableParams.count()).toBe(5);
-    }); 
+    });
 
-    it('test 002.4', function () {
+    it('test 002.4', function() {
         expect(scope.userRoles).not.toBe(null);
     });
 
-    it('test 002.5', function () {        
+    it('test 002.5', function() {
         expect(scope.roles).not.toBeUndefined();
     });
 
-    it('test 002.6', function () {        
+    it('test 002.6', function() {
         scope._loadRoles();
         expect(scope.roles.length).toEqual(3);
     });
 });
 
-describe("Test 002.2 - User Controller", function () {
+describe("Test 002.2 - User Controller", function() {
 
     beforeEach(module('hiperionApp'));
 
     var userCtrl, scope;
     var rolesFake = [{ name: "Administrator", id: 1 }, { name: "User", id: 2 }, { name: "Collaborator", id: 3 }];
 
-    beforeEach(inject(function ($controller, $rootScope, roleService) {
+    beforeEach(inject(function($controller, $rootScope, roleService) {
         scope = $rootScope.$new();
 
-        spyOn(roleService, 'getRoles').and.callFake(function () {
+        spyOn(roleService, 'getRoles').and.callFake(function() {
             return {
-                success: function (callback) { callback(rolesFake) }
+                success: function(callback) { callback(rolesFake); }
             };
         });
 
@@ -84,11 +84,11 @@ describe("Test 002.2 - User Controller", function () {
         });
     }));
 
-    it('test 002.5', function () {
+    it('test 002.5', function() {
         expect(scope.roles).not.toBeUndefined();
     });
 
-    it('test 002.6', function () {
+    it('test 002.6', function() {
         scope._loadRoles();
         expect(scope.roles.length).toEqual(3);
     });

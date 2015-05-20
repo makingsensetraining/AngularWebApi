@@ -3,11 +3,11 @@
 angular.module('hiperionApp')
     .controller('UserCtrl', function($scope, $http, $filter, ngTableParams, $sce, ngDialog, roleService, userService, countryService) {
         var data = [];
-        $scope.user = { id: '', name: '', lastName: '', age: '', country: ''};
+        $scope.user = { id: '', name: '', lastName: '', age: '', country: '' };
         $scope.userRoles = [];
         $scope.roles = [];
         $scope.fullRoles = [];
-        $scope.countries = [];        
+        $scope.countries = [];
         $scope.userToDeleteId = 0;
 
         loadUsers();
@@ -54,7 +54,7 @@ angular.module('hiperionApp')
                 roles: $scope.userRoles
             };
 
-            userService.addUser(userdto).success(function (result) {
+            userService.addUser(userdto).success(function(result) {
                 if (result) {
                     loadUsers();
                 } else {
@@ -74,7 +74,7 @@ angular.module('hiperionApp')
 
         function loadUsers() {
             userService.getUsers().
-                success(function (result, status, headers, config) {
+                success(function(result, status, headers, config) {
                     data = result;
                     $scope.tableParams.reload();
                 });
@@ -82,12 +82,12 @@ angular.module('hiperionApp')
 
         function loadRoles() {
             roleService.getRoles().
-                success(function (result, status, headers, config) {
+                success(function(result, status, headers, config) {
                     $scope.roles = [];
-                    result.forEach(function (role) {
+                    result.forEach(function(role) {
                         $scope.roles.push({ id: role.id, label: role.name });
-                    });                
-                })                
+                    });
+                });
         }
 
         function loadCountries() {
@@ -100,7 +100,7 @@ angular.module('hiperionApp')
             $scope.user.lastName = user.lastName;
             $scope.user.age = user.age;
             $scope.user.country = user.country;
-            
+
             if (user.roles) {
                 $scope.userRoles = [];
                 user.roles.forEach(function(role) {

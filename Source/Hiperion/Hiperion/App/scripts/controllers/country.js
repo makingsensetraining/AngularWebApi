@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 angular.module('hiperionApp')
-    .controller('CountryCtrl', function ($scope, $http, $filter, ngTableParams, $sce, ngDialog, countryService) {    
+    .controller('CountryCtrl', function($scope, $http, $filter, ngTableParams, $sce, ngDialog, countryService) {
         var data = [];
         $scope.id = '';
         $scope.name = '';
@@ -61,7 +61,7 @@ angular.module('hiperionApp')
                 success(function(result, status, headers, config) {
                     data = result;
                     $scope.tableParams.reload();
-                })
+                });
         }
 
         function loadCountryInDialog(country) {
