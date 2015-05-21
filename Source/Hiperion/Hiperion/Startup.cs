@@ -48,7 +48,7 @@ namespace Hiperion
             OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
             {
                 AllowInsecureHttp = true,
-                TokenEndpointPath = new PathString("/authtoken"),
+                TokenEndpointPath = new PathString("/login"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
                 Provider = new SimpleAuthorizationServerProvider(userServices)                
             };

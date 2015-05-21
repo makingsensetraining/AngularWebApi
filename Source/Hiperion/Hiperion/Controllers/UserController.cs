@@ -55,12 +55,5 @@
             _userServices.SignUp(user);
             return Request.CreateResponse(HttpStatusCode.OK, user);
         }
-
-        [HttpPost] // POST api/login
-        public HttpResponseMessage Login(string userName, string password)
-        {
-            bool isValid = _userServices.Login(userName, password);            
-            return Request.CreateResponse(HttpStatusCode.OK, isValid);
-        }
     }
 }
