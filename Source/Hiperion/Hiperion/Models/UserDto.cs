@@ -10,6 +10,12 @@
     [JsonObject(MemberSerialization.OptIn)]
     public class UserDto : ModelEntity
     {
+        [JsonProperty("username")]
+        public string UserName { get; set; }
+
+        [JsonProperty("password")]
+        public string Password { get; set; }
+
         [JsonProperty("name")]
         public string FirstName { get; set; }
 

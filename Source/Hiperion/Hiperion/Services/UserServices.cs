@@ -2,12 +2,14 @@
 {
     #region References
 
+    using System;
     using System.Collections.Generic;
     using AutoMapper;
     using Domain;
     using Interfaces;
     using Models;
     using Repositories.Interfaces;
+
 
     #endregion
 
@@ -25,17 +27,14 @@
         public IEnumerable<UserDto> GetAllUsers()
         {
             var users = _repository.GetAllValues();
-
             var userDtos = _mapperEngine.Map<IList<User>, IList<UserDto>>(users);
 
             return userDtos;
         }
 
         public bool SaveOrUpdateUser(UserDto userDto)
-        {
+        {           
             var user = _mapperEngine.Map<UserDto, User>(userDto);
-
-            //add some bussines logic before update DB
             _repository.SaveOrUpdateUser(user);
 
             return true;
@@ -43,9 +42,26 @@
 
         public void DeleteUser(int id)
         {
-            //add some bussines logic before update DB
-
             _repository.DeleteUser(id);
+        }
+
+        public bool SignUp(UserDto userDto)
+        {
+            if (string.IsNullOrEmpty(userDto.UserName) || string.IsNullOrEmpty(userDto.Password))
+                throw new ArgumentNullException("The user name or password is incorrect");
+
+            userDto.Password = Hiperion.Infrastructure.Security.SecurityHelper.CalculateMD5Hash(userDto.Password);
+
+            var user = _mapperEngine.Map<UserDto, User>(userDto);
+            _repository.SaveOrUpdateUser(user);
+
+            return true;
+        }
+        
+        public bool Login(string userName, string password)
+        {
+            password = Hiperion.Infrastructure.Security.SecurityHelper.CalculateMD5Hash(password);
+            return _repository.Login(userName, password);
         }
     }
 }
