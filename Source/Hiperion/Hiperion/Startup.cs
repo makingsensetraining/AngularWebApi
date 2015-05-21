@@ -1,21 +1,30 @@
-﻿using Castle.Windsor;
-using Hiperion.Infrastructure.EF;
-using Hiperion.Services.Interfaces;
-using Microsoft.Owin;
-using Microsoft.Owin.Cors;
-using Microsoft.Owin.Security;
-using Microsoft.Owin.Security.OAuth;
-using Owin;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
+﻿#region References
 
-[assembly: OwinStartup(typeof(Hiperion.Startup))]
+using Hiperion;
+using Microsoft.Owin;
+
+#endregion
+
+[assembly: OwinStartup(typeof (Startup))]
+
 namespace Hiperion
 {
+    #region References
+
+    using System;
+    using System.Data.Entity;
+    using System.Web.Http;
+    using System.Web.Mvc;
+    using System.Web.Routing;
+    using Castle.Windsor;
+    using Infrastructure.EF;
+    using Microsoft.Owin.Cors;
+    using Microsoft.Owin.Security.OAuth;
+    using Owin;
+    using Services.Interfaces;
+
+    #endregion
+
     public class Startup
     {
         private static IWindsorContainer _container;
@@ -29,7 +38,11 @@ namespace Hiperion
         {
             _container = Bootstrapper.InitializeContainer();
 
-            HttpConfiguration config = new HttpConfiguration();
+            AreaRegistration.RegisterAllAreas();
+            GlobalConfiguration.Configure(WebApiConfig.Register);
+            RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            var config = new HttpConfiguration();
             ConfigureOAuth(app);
 
             WebApiConfig.Register(config);
@@ -41,16 +54,15 @@ namespace Hiperion
 
         public void ConfigureOAuth(IAppBuilder app)
         {
+            var userServices = _container.Resolve<IUserServices>();
 
-            IUserServices userServices = _container.Resolve<IUserServices>();
 
-
-            OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
+            var OAuthServerOptions = new OAuthAuthorizationServerOptions
             {
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/login"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
-                Provider = new SimpleAuthorizationServerProvider(userServices)                
+                Provider = new SimpleAuthorizationServerProvider(userServices)
             };
 
             // Token Generation
