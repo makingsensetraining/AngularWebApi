@@ -57,7 +57,28 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Cors">
+      <HintPath>..\packages\Microsoft.Owin.Cors.2.1.0\lib\net45\Microsoft.Owin.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web.Cors">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -67,6 +88,12 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http.Cors">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.0\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.1.2\lib\net45\System.Web.Http.Owin.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -118,6 +145,7 @@
     <Content Include="App\scripts\controllers\role.js" />
     <Content Include="App\scripts\controllers\user.js" />
     <Content Include="App\scripts\directives\timeHeader.js" />
+    <Content Include="App\scripts\factories\auth.js" />
     <Content Include="App\scripts\services\country.js" />
     <Content Include="App\scripts\services\role.js" />
     <Content Include="App\scripts\services\user.js" />
@@ -185,7 +213,9 @@
     <Content Include="App\views\templates\userDialog.html" />
     <Content Include="karma.conf.js" />
     <Content Include="Test\test.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -200,6 +230,9 @@
     <Compile Include="Domain\Mappings\RoleMap.cs" />
     <Compile Include="Domain\Mappings\UserMap.cs" />
     <Compile Include="Domain\Role.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="Infrastructure\Automapper\AutomapperConfiguration.cs" />
     <Compile Include="Infrastructure\Automapper\IObjectMapperConfigurator.cs" />
     <Compile Include="Infrastructure\Ioc\WindsorDependencyResolver.cs" />
@@ -209,6 +242,7 @@
     <Compile Include="Infrastructure\Mappings\ManyToManyEntityResolver.cs" />
     <Compile Include="Infrastructure\Mappings\RoleMappers.cs" />
     <Compile Include="Infrastructure\Mappings\UserMappers.cs" />
+    <Compile Include="Infrastructure\Security\SecurityHelper.cs" />
     <Compile Include="Migrations\201505081556371_User-20150508-daltamirano.cs" />
     <Compile Include="Migrations\201505081556371_User-20150508-daltamirano.Designer.cs">
       <DependentUpon>201505081556371_User-20150508-daltamirano.cs</DependentUpon>
@@ -229,6 +263,10 @@
     <Compile Include="Migrations\201505190303204_Countries-20150518-daltamirano.Designer.cs">
       <DependentUpon>201505190303204_Countries-20150518-daltamirano.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505211522190_UserNameAndPasswordAddedToUser.cs" />
+    <Compile Include="Migrations\201505211522190_UserNameAndPasswordAddedToUser.Designer.cs">
+      <DependentUpon>201505211522190_UserNameAndPasswordAddedToUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CountryDto.cs" />
     <Compile Include="Models\ModelEntity.cs" />
@@ -242,9 +280,6 @@
     <Compile Include="Repositories\RoleRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Domain\User.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
     <Compile Include="Infrastructure\EF\Interfaces\IDbContext.cs" />
     <Compile Include="Infrastructure\EF\HiperionDbContext.cs" />
     <Compile Include="Infrastructure\Ioc\WindsorInstaller.cs" />
@@ -255,10 +290,14 @@
     <Compile Include="Services\Interfaces\IUserServices.cs" />
     <Compile Include="Services\RoleServices.cs" />
     <Compile Include="Services\UserServices.cs" />
+    <Compile Include="SimpleAuthorizationServerProvider.cs" />
+    <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -290,6 +329,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201505190303204_Countries-20150518-daltamirano.resx">
       <DependentUpon>201505190303204_Countries-20150518-daltamirano.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505211522190_UserNameAndPasswordAddedToUser.resx">
+      <DependentUpon>201505211522190_UserNameAndPasswordAddedToUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

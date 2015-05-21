@@ -14,5 +14,9 @@
         bool SaveOrUpdateUser(UserDto userDto);
 
         void DeleteUser(int id);
+
+        bool SignUp(UserDto userDto);
+
+        bool Login(string userName, string password);
     }
 }
