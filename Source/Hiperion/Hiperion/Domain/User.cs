@@ -3,6 +3,7 @@
     #region References
 
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
     #endregion
@@ -10,6 +11,14 @@
     [Table("Users")]
     public class User : DomainEntity
     {
+        [Column("UserName")]
+        [Required()]
+        public string UserName { get; set; }
+
+        [Column("Password")]
+        [Required()]
+        public string Password { get; set; }
+
         [Column("FirstName")]
         public string FirstName { get; set; }
 

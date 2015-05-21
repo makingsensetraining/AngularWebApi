@@ -14,5 +14,7 @@
         void SaveOrUpdateUser(User user);
 
         void DeleteUser(int id);
+
+        bool Login(string userName, string password);
     }
 }

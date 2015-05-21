@@ -15,6 +15,8 @@
 
             //Properties
             Property(t => t.Id).HasColumnName("Id");
+            Property(t => t.UserName).HasColumnName("UserName");
+            Property(t => t.Password).HasColumnName("Password");
             Property(t => t.FirstName).HasColumnName("FirstName");
             Property(t => t.LastName).HasColumnName("LastName");
             Property(t => t.Age).HasColumnName("Age");

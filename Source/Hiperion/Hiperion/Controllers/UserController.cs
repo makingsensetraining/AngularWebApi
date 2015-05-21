@@ -5,11 +5,14 @@
     using System.Net;
     using System.Net.Http;
     using System.Web.Http;
+    using System.Linq;
     using Models;
     using Services.Interfaces;
+    using System.Security.Claims;
 
     #endregion
 
+    [Authorize]
     public class UserController : ApiController
     {
         private readonly IUserServices _userServices;
@@ -23,6 +26,9 @@
         [HttpGet]
         public HttpResponseMessage Get()
         {
+            //ClaimsPrincipal principal = Request.GetRequestContext().Principal as ClaimsPrincipal;
+            //var userName = principal.Claims.Where(c => c.Type == "sub").Single().Value;
+
             var users = _userServices.GetAllUsers();
             return users == null
                 ? Request.CreateResponse(HttpStatusCode.NotFound)
@@ -33,7 +39,7 @@
         public HttpResponseMessage Post(UserDto user)
         {
             _userServices.SaveOrUpdateUser(user);
-            return Request.CreateResponse(HttpStatusCode.OK, user);
+            return Request.CreateResponse(HttpStatusCode.OK, user);         
         }
 
         [HttpDelete] // DELETE api/user/5
@@ -41,6 +47,20 @@
         {
             _userServices.DeleteUser(id);
             return Request.CreateResponse(HttpStatusCode.NoContent);
+        }
+        
+        [HttpPost] // POST api/signup
+        public HttpResponseMessage SignUp(UserDto user)
+        {           
+            _userServices.SignUp(user);
+            return Request.CreateResponse(HttpStatusCode.OK, user);
+        }
+
+        [HttpPost] // POST api/login
+        public HttpResponseMessage Login(string userName, string password)
+        {
+            bool isValid = _userServices.Login(userName, password);            
+            return Request.CreateResponse(HttpStatusCode.OK, isValid);
         }
     }
 }
