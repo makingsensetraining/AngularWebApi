@@ -2,6 +2,7 @@
 
 angular.module('hiperionApp')
     .controller('HomeCtrl', function ($scope, ngDialog, authService) {
+        $scope.isAuth = false;
         $scope.title = 'HOME';
         $scope.name = "";
         $scope.comment = "";
@@ -14,12 +15,15 @@ angular.module('hiperionApp')
                 className: 'ngdialog-theme-default'
             });
         };
+
         $scope.showComments = function() {
             $scope.isCommentsVisible = true;
         };
+
         $scope.preCloseCallbackOnScope = function(value) {
             return true;
         };
+
         $scope.addComment = function() {
             ngDialog.openConfirm({
                 template: 'commentTemplate',
@@ -43,7 +47,7 @@ angular.module('hiperionApp')
                 preCloseCallback: 'preCloseCallbackOnScope',
                 scope: $scope
             }).then(function (signup) {
-                authService.saveRegistration(signup);
+                $scope.isAuth = authService.saveRegistration(signup);
             });
         }
     });

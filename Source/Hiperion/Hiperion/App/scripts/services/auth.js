@@ -9,26 +9,28 @@ angular.module('hiperionApp')
 
         this.saveRegistration = function (registration) {
             this.logOut();
+            authentication.isAuth = true;
+            return authentication.isAuth;
             //return $http.post('/api/account/register', registration).then(function (response) {
             //    return response;
             //});
         };
 
         this.login = function (loginData) {
-            var data = "grant_type=password&username=" + loginData.userName + "&password=" + loginData.password;
+            var data = "username=" + loginData.userName + "&password=" + loginData.password;
             var deferred = $q.defer();
-            $http.post('/token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
-                localStorageService.set('authorizationData', { token: response.access_token, userName: loginData.userName });
+            authentication.isAuth = true;
+            //$http.post('/token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
+            //    localStorageService.set('authorizationData', { token: response.access_token, userName: loginData.userName });
 
-                authentication.isAuth = true;
-                authentication.userName = loginData.userName;
+            //    authentication.isAuth = true;
+            //    authentication.userName = loginData.userName;
 
-                deferred.resolve(response);
-
-            }).error(function (err, status) {
-                this.logOut();
-                deferred.reject(err);
-            });
+            //    deferred.resolve(response);
+            //}).error(function (err, status) {
+            //    logOut();
+            //    deferred.reject(err);
+            //});
             return deferred.promise;
         };
 

@@ -37,7 +37,8 @@
                     <li><a href="#/roles">Roles</a></li>
                     <li><a href="#/countries">Countries</a></li>
                     <li><a href="#/about">About</a></li>
-                    <li><a href="#/" ng-click="signUp();">Sign Up</a></li>
+                    <li ng-show="!isAuth"><a href="#/" ng-click="signUp();">Sign Up</a></li>
+                    <li ng-show="isAuth"><a href="#/" ng-click="logout();">Logout</a></li>
                 </ul>
             </div>
         </div>
