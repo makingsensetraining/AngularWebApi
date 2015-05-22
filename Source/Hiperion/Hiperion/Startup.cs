@@ -22,6 +22,7 @@ namespace Hiperion
     using Microsoft.Owin.Security.OAuth;
     using Owin;
     using Services.Interfaces;
+    using Hiperion.Infrastructure.Ioc;
 
     #endregion
 
@@ -43,6 +44,8 @@ namespace Hiperion
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             var config = new HttpConfiguration();
+            config.DependencyResolver = new WindsorDependencyResolver(_container);
+
             ConfigureOAuth(app);
 
             WebApiConfig.Register(config);
