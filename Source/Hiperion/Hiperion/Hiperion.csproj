@@ -290,7 +290,7 @@
     <Compile Include="Services\Interfaces\IUserServices.cs" />
     <Compile Include="Services\RoleServices.cs" />
     <Compile Include="Services\UserServices.cs" />
-    <Compile Include="SimpleAuthorizationServerProvider.cs" />
+    <Compile Include="Providers\SimpleAuthorizationServerProvider.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
