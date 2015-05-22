@@ -10,6 +10,7 @@
 
     #endregion
 
+    [Authorize]
     public class RoleController : ApiController
     {
         private readonly IRoleServices _roleServices;

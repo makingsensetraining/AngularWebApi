@@ -23,6 +23,9 @@ namespace Hiperion
     using Owin;
     using Services.Interfaces;
     using Hiperion.Infrastructure.Ioc;
+    using Microsoft.Owin.Security.Facebook;
+    using Hiperion.Providers;
+    using System.Configuration;
 
     #endregion
 
@@ -34,6 +37,9 @@ namespace Hiperion
         {
             get { return _container; }
         }
+
+        public static OAuthBearerAuthenticationOptions MainOAuthBearerOptions { get; private set; }
+        public static FacebookAuthenticationOptions FacebookAuthOptions { get; private set; }
 
         public void Configuration(IAppBuilder app)
         {
@@ -57,8 +63,11 @@ namespace Hiperion
 
         public void ConfigureOAuth(IAppBuilder app)
         {
-            var userServices = _container.Resolve<IUserServices>();
+            // Use a cookie to temporarily store information about a user logging in with a third party login provider
+            app.UseExternalSignInCookie(Microsoft.AspNet.Identity.DefaultAuthenticationTypes.ExternalCookie);
+            MainOAuthBearerOptions = new OAuthBearerAuthenticationOptions();
 
+            var userServices = _container.Resolve<IUserServices>();
 
             var OAuthServerOptions = new OAuthAuthorizationServerOptions
             {
@@ -70,7 +79,17 @@ namespace Hiperion
 
             // Token Generation
             app.UseOAuthAuthorizationServer(OAuthServerOptions);
-            app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
+            app.UseOAuthBearerAuthentication(MainOAuthBearerOptions);
+
+            // Configure Facebook External Login.
+            FacebookAuthOptions = new FacebookAuthenticationOptions()
+            {
+                AppId =  ConfigurationManager.AppSettings.Get("FacebookAppId"),
+                AppSecret = ConfigurationManager.AppSettings.Get("FacebookAppSecret"),
+                Provider = new FacebookAuthProvider()
+            };
+
+            app.UseFacebookAuthentication(FacebookAuthOptions);
         }
     }
 }
