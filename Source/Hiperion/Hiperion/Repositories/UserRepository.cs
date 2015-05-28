@@ -60,15 +60,14 @@
             _context.SaveChanges();
         }
 
+        public bool Login(string userName, string password)
+        {
+            return _context.Entity<User>().Where(user => user.UserName == userName && user.Password == password).Any();
+        }
+
         public User GetUser(int id)
         {
             return _context.Entity<User>().FirstOrDefault(x => x.Id == id);
         }
-
-        public bool Login(string userName, string password)
-        {        
-            return _context.Entity<User>().Where(user => user.UserName == userName && user.Password == password).Any();
-        }
-
     }
 }

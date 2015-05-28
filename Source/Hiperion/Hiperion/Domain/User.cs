@@ -12,11 +12,11 @@
     public class User : DomainEntity
     {
         [Column("UserName")]
-        [Required()]
+        [Required]
         public string UserName { get; set; }
 
         [Column("Password")]
-        [Required()]
+        [Required]
         public string Password { get; set; }
 
         [Column("FirstName")]

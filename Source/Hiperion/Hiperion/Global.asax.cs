@@ -3,13 +3,7 @@
     #region References
 
     using System;
-    using System.Data.Entity;
     using System.Web;
-    using System.Web.Http;
-    using System.Web.Mvc;
-    using System.Web.Routing;
-    using Castle.Windsor;
-    using Infrastructure.EF;
 
     #endregion
 

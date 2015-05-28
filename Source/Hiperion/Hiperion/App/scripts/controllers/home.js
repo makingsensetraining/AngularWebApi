@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 angular.module('hiperionApp')
-    .controller('HomeCtrl', function ($scope, ngDialog, authService) {
+    .controller('HomeCtrl', function($scope, ngDialog, authService) {
         $scope.isAuth = false;
         $scope.title = 'HOME';
         $scope.name = "";
@@ -36,7 +36,7 @@ angular.module('hiperionApp')
             });
         };
 
-        $scope.signUp = function () {
+        $scope.signUp = function() {
             openSignUpDialog();
         };
 
@@ -46,8 +46,9 @@ angular.module('hiperionApp')
                 className: 'ngdialog-theme-default',
                 preCloseCallback: 'preCloseCallbackOnScope',
                 scope: $scope
-            }).then(function (signup) {
+            }).then(function(signup) {
                 $scope.isAuth = authService.saveRegistration(signup);
             });
         }
+
     });

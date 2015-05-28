@@ -57,7 +57,8 @@ namespace Hiperion.Migrations
                 {
                     Id = 1,
                     UserName = "john@mail.com",
-                    Password = "B4B37559DDAAF2D4187D7EA521C88F64", /*test#1234*/
+                    Password = "B4B37559DDAAF2D4187D7EA521C88F64",
+                    /*test#1234*/
                     FirstName = "John",
                     LastName = "Doe",
                     Age = 50,

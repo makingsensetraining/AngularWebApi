@@ -6,10 +6,10 @@
     using System.Collections.Generic;
     using AutoMapper;
     using Domain;
+    using Infrastructure.Security;
     using Interfaces;
     using Models;
     using Repositories.Interfaces;
-
 
     #endregion
 
@@ -33,7 +33,7 @@
         }
 
         public bool SaveOrUpdateUser(UserDto userDto)
-        {           
+        {
             var user = _mapperEngine.Map<UserDto, User>(userDto);
             _repository.SaveOrUpdateUser(user);
 
@@ -50,17 +50,17 @@
             if (string.IsNullOrEmpty(userDto.UserName) || string.IsNullOrEmpty(userDto.Password))
                 throw new ArgumentNullException("The user name or password is incorrect");
 
-            userDto.Password = Hiperion.Infrastructure.Security.SecurityHelper.CalculateMD5Hash(userDto.Password);
+            userDto.Password = SecurityHelper.CalculateMD5Hash(userDto.Password);
 
             var user = _mapperEngine.Map<UserDto, User>(userDto);
             _repository.SaveOrUpdateUser(user);
 
             return true;
         }
-        
+
         public bool Login(string userName, string password)
         {
-            password = Hiperion.Infrastructure.Security.SecurityHelper.CalculateMD5Hash(password);
+            password = SecurityHelper.CalculateMD5Hash(password);
             return _repository.Login(userName, password);
         }
     }

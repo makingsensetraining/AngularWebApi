@@ -5,10 +5,8 @@
     using System.Net;
     using System.Net.Http;
     using System.Web.Http;
-    using System.Linq;
     using Models;
     using Services.Interfaces;
-    using System.Security.Claims;
 
     #endregion
 
@@ -39,7 +37,7 @@
         public HttpResponseMessage Post(UserDto user)
         {
             _userServices.SaveOrUpdateUser(user);
-            return Request.CreateResponse(HttpStatusCode.OK, user);         
+            return Request.CreateResponse(HttpStatusCode.OK, user);
         }
 
         [HttpDelete] // DELETE api/user/5
@@ -48,10 +46,10 @@
             _userServices.DeleteUser(id);
             return Request.CreateResponse(HttpStatusCode.NoContent);
         }
-        
+
         [HttpPost] // POST api/signup
         public HttpResponseMessage SignUp(UserDto user)
-        {           
+        {
             _userServices.SignUp(user);
             return Request.CreateResponse(HttpStatusCode.OK, user);
         }

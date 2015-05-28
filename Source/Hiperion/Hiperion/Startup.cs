@@ -18,11 +18,12 @@ namespace Hiperion
     using System.Web.Routing;
     using Castle.Windsor;
     using Infrastructure.EF;
+    using Infrastructure.Ioc;
     using Microsoft.Owin.Cors;
     using Microsoft.Owin.Security.OAuth;
     using Owin;
+    using Providers;
     using Services.Interfaces;
-    using Hiperion.Infrastructure.Ioc;
 
     #endregion
 
@@ -43,8 +44,10 @@ namespace Hiperion
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
-            var config = new HttpConfiguration();
-            config.DependencyResolver = new WindsorDependencyResolver(_container);
+            var config = new HttpConfiguration
+            {
+                DependencyResolver = new WindsorDependencyResolver(_container)
+            };
 
             ConfigureOAuth(app);
 
@@ -58,9 +61,8 @@ namespace Hiperion
         public void ConfigureOAuth(IAppBuilder app)
         {
             var userServices = _container.Resolve<IUserServices>();
-
-
-            var OAuthServerOptions = new OAuthAuthorizationServerOptions
+            
+            var oAuthServerOptions = new OAuthAuthorizationServerOptions
             {
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/login"),
@@ -69,7 +71,7 @@ namespace Hiperion
             };
 
             // Token Generation
-            app.UseOAuthAuthorizationServer(OAuthServerOptions);
+            app.UseOAuthAuthorizationServer(oAuthServerOptions);
             app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
         }
     }
