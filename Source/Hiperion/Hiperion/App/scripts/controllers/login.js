@@ -10,13 +10,14 @@ angular.module('hiperionApp').controller('LoginCtrl', ['$scope', '$location', 'a
     $scope.message = "";
 
     $scope.login = function () {
-
         authService.login($scope.loginData).then(function (response) {
             $location.path('/users');
+            $scope.isAuth = true;
         },
-         function (err) {
-             $scope.message = err.error_description;
-         });
+        function (err) {
+            $scope.message = err.error_description;
+            $scope.isAuth = false;
+        });
     };
 
 }]);
