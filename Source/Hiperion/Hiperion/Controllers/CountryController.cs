@@ -10,6 +10,7 @@
 
     #endregion
 
+    [Authorize]
     public class CountryController : ApiController
     {
         private readonly ICountryServices _countryServices;

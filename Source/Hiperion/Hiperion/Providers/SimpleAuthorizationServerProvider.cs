@@ -6,7 +6,7 @@ using Microsoft.Owin.Security;
 using Hiperion.Services;
 using Hiperion.Services.Interfaces;
 
-namespace Hiperion
+namespace Hiperion.Providers
 {
     public class SimpleAuthorizationServerProvider : OAuthAuthorizationServerProvider
     {
