@@ -36,8 +36,8 @@
         [HttpPost] // POST api/user
         public HttpResponseMessage Post(UserDto user)
         {
-            _userServices.SaveOrUpdateUser(user);
-            return Request.CreateResponse(HttpStatusCode.OK, user);
+            var result = _userServices.SaveOrUpdateUser(user);
+            return Request.CreateResponse(result ? HttpStatusCode.OK : HttpStatusCode.InternalServerError, user);
         }
 
         [HttpDelete] // DELETE api/user/5
@@ -45,13 +45,6 @@
         {
             _userServices.DeleteUser(id);
             return Request.CreateResponse(HttpStatusCode.NoContent);
-        }
-
-        [HttpPost] // POST api/signup
-        public HttpResponseMessage SignUp(UserDto user)
-        {
-            _userServices.SignUp(user);
-            return Request.CreateResponse(HttpStatusCode.OK, user);
         }
     }
 }

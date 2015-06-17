@@ -1,4 +1,6 @@
-﻿namespace Hiperion.Repositories
+﻿using Hiperion.Infrastructure.Security;
+
+namespace Hiperion.Repositories
 {
     #region References
 
@@ -33,8 +35,25 @@
                 if (existingUser == null) return;
 
                 //Update scalar values
-                var attachedUser = _context.Entry(existingUser);
-                attachedUser.CurrentValues.SetValues(user);
+                if (user.FirstName != null)
+                    existingUser.FirstName = user.FirstName;
+
+                if (user.LastName != null)
+                    existingUser.LastName = user.LastName;
+
+                if (user.Password != null)
+                    existingUser.Password = user.Password;
+
+                if (user.UserName != null)
+                    existingUser.UserName = user.UserName;
+
+                existingUser.Age = user.Age;
+
+                if (user.CountryId != null)
+                    existingUser.CountryId = user.CountryId;
+
+                if (user.Password != null)
+                    existingUser.Password = SecurityHelper.CalculateMD5Hash(user.Password);
 
                 //Filter deleted roles and added roles
                 var deletedRoles = existingUser.Roles.Except(user.Roles).ToList();
@@ -43,6 +62,8 @@
                 //Update roles
                 deletedRoles.ForEach(role => existingUser.Roles.Remove(role));
                 addedRoles.ForEach(role => existingUser.Roles.Add(role));
+
+                _context.Entity<User>().AddOrUpdate(existingUser);
 
                 _context.SaveChanges();
             }

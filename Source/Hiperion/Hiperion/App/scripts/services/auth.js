@@ -29,7 +29,11 @@ angular.module('hiperionApp')
 
                     deferred.resolve(response);
                 }).error(function (err, status) {
-                    logOut();
+                    localStorageService.remove('authorizationData');
+
+                    authentication.isAuth = false;
+                    authentication.userName = "";
+
                     deferred.reject(err);
                 });
                 return deferred.promise;

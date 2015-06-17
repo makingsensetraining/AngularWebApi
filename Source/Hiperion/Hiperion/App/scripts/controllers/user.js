@@ -49,6 +49,8 @@ angular.module('hiperionApp')
                 id: $scope.user.id,
                 name: $scope.user.name,
                 lastName: $scope.user.lastName,
+                username: $scope.user.username,
+                password: $scope.user.password,
                 age: $scope.user.age,
                 country: $scope.user.country,
                 roles: $scope.userRoles
@@ -98,6 +100,7 @@ angular.module('hiperionApp')
             $scope.user.id = user.id;
             $scope.user.name = user.name;
             $scope.user.lastName = user.lastName;
+            $scope.user.username = user.username;
             $scope.user.age = user.age;
             $scope.user.country = user.country;
 

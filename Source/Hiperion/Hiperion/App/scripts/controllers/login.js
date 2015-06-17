@@ -4,7 +4,8 @@ angular.module('hiperionApp').controller('LoginCtrl', ['$scope', '$location', 'a
 
     $scope.loginData = {
         userName: "",
-        password: ""
+        password: "",
+        isAuth: false
     };
 
     $scope.message = "";
@@ -12,11 +13,11 @@ angular.module('hiperionApp').controller('LoginCtrl', ['$scope', '$location', 'a
     $scope.login = function () {
         authService.login($scope.loginData).then(function (response) {
             $location.path('/users');
-            $scope.isAuth = true;
+            $scope.loginData.isAuth = true;
         },
         function (err) {
             $scope.message = err.error_description;
-            $scope.isAuth = false;
+            $scope.loginData.isAuth = false;
         });
     };
 
